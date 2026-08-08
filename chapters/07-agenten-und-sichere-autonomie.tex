@@ -1,6 +1,6 @@
 \chapter{Agenten und sichere Autonomie}
 
-Ein Agent beantwortet nicht nur eine einzelne Frage. Er verfolgt ein Ziel über mehrere Schritte, beobachtet Ergebnisse und passt sein weiteres Vorgehen an. Der Begriff beschreibt damit eine Arbeitsweise, keine Garantie für vollständige Selbstständigkeit.
+Denk an dein Bankkonto in einer Banking-App. Es gibt drei ganz unterschiedliche Dinge, die du damit tun kannst: Du kannst deinen Kontostand \emph{ansehen}, ohne dass sich etwas verändert. Du kannst eine Überweisung \emph{ausfüllen} -- Betrag, Empfänger, Verwendungszweck -- ohne sie schon abzuschicken. Und du kannst auf ``Jetzt überweisen'' \emph{drücken}, wonach das Geld wirklich weg ist und sich nur schwer zurückholen lässt. Genau diese drei Stufen -- ansehen, vorbereiten, wirklich ausführen -- bilden das Grundgerüst für sichere KI-Agenten. Ein Agent beantwortet nicht nur eine einzelne Frage. Er verfolgt ein Ziel über mehrere Schritte, beobachtet Ergebnisse und passt sein weiteres Vorgehen an. Der Begriff beschreibt damit eine Arbeitsweise, keine Garantie für vollständige Selbstständigkeit.
 
 \input{diagrams/05-read-draft-act.tex}
 
@@ -11,16 +11,16 @@ Ein typischer Zyklus besteht aus Ziel verstehen, planen, handeln, beobachten und
 \section{Read, Draft und Act}
 
 \begin{description}
-\item[Read] Informationen abrufen und analysieren, ohne externe Daten zu verändern. Beispiele sind das Lesen eines Kalenders oder das Auswerten eines Dokuments.
-\item[Draft] Eine Änderung vollständig vorbereiten, aber noch nicht auslösen. Dazu gehören E-Mail-Entwürfe, vorgeschlagene Kalenderänderungen oder ein vorbereiteter Pull Request.
-\item[Act] Eine externe Wirkung auslösen, etwa eine Nachricht senden, einen Termin verschieben, Daten veröffentlichen oder eine Bestellung ausführen.
+\item[Read] Informationen abrufen und analysieren, ohne externe Daten zu verändern. Beispiele sind das Lesen eines Kalenders oder das Auswerten eines Dokuments -- der Blick auf den Kontostand.
+\item[Draft] Eine Änderung vollständig vorbereiten, aber noch nicht auslösen. Dazu gehören E-Mail-Entwürfe, vorgeschlagene Kalenderänderungen oder ein vorbereiteter Pull Request -- die ausgefüllte, aber noch nicht abgeschickte Überweisung.
+\item[Act] Eine externe Wirkung auslösen, etwa eine Nachricht senden, einen Termin verschieben, Daten veröffentlichen oder eine Bestellung ausführen -- der Klick auf ``Jetzt überweisen''.
 \end{description}
 
-Diese Stufen helfen, Berechtigungen an die tatsächliche Aufgabe anzupassen. Viele Arbeitsabläufe profitieren bereits von Read und Draft; Act ist nur dort nötig, wo die Ausführung ausdrücklich gewünscht ist.
+Diese Stufen helfen, Berechtigungen an die tatsächliche Aufgabe anzupassen. Viele Arbeitsabläufe profitieren bereits von Read und Draft; Act ist nur dort nötig, wo die Ausführung ausdrücklich gewünscht ist. Genau wie im echten Leben: Die meiste Zeit reicht es, den Kontostand zu prüfen oder eine Überweisung vorzubereiten, um mit jemandem darüber zu sprechen -- abgeschickt wird sie erst, wenn wirklich alles stimmt.
 
 \section{Risikofaktoren bewerten}
 
-Nicht jede Aktion ist gleich kritisch. Relevant sind Reichweite, Umkehrbarkeit, finanzielle Wirkung, Datenschutz und betroffene Personen. Eine private Entwurfsdatei ist leichter korrigierbar als eine veröffentlichte Mitteilung. Eine Terminverschiebung für eine Person hat geringere Reichweite als eine Änderung für hundert Teilnehmende.
+Nicht jede Aktion ist gleich kritisch. Relevant sind Reichweite, Umkehrbarkeit, finanzielle Wirkung, Datenschutz und betroffene Personen. Eine private Entwurfsdatei ist leichter korrigierbar als eine veröffentlichte Mitteilung, so wie ein Bleistiftstrich leichter wegradiert ist als eine Tätowierung. Eine Terminverschiebung für eine Person hat geringere Reichweite als eine Änderung für hundert Teilnehmende.
 
 \section{Leitplanken für sichere Agenten}
 
@@ -34,6 +34,10 @@ Nicht jede Aktion ist gleich kritisch. Relevant sind Reichweite, Umkehrbarkeit, 
 \item bei Widerspruch oder Unsicherheit an den Nutzer eskalieren.
 \end{itemize}
 
+\section{Ein Beispiel aus dem Alltag}
+
+Ein Agent soll ``alle unwichtigen E-Mails aufräumen''. Im Read-Schritt liest er den Posteingang und markiert, was nach Werbung oder Newslettern aussieht. Im Draft-Schritt erstellt er eine Liste mit Löschvorschlägen, die du durchsehen kannst -- vielleicht steckt eine wichtige Rechnung dazwischen, die nur zufällig wie Werbung aussah. Erst im Act-Schritt, nach deiner Bestätigung, werden die E-Mails wirklich gelöscht. Ohne diese Trennung könnte ein einziger Fehleinschätzung genügen, um eine wichtige Nachricht unwiderruflich zu verlieren.
+
 \begin{achtung}
 Zahlungen, Löschungen, Veröffentlichungen, Nachrichten und Rechteänderungen sind folgenreiche Aktionen. Vor der Ausführung müssen Ziel, Umfang und sichtbare Vorschau geprüft werden.
 \end{achtung}
@@ -41,4 +45,3 @@ Zahlungen, Löschungen, Veröffentlichungen, Nachrichten und Rechteänderungen s
 \begin{praxis}
 Wähle einen realen Ablauf, etwa eine Besprechung zu verschieben. Beschreibe getrennt, was in Read, Draft und Act geschieht. Lege fest, welche Informationen vor dem Übergang zu Act noch bestätigt werden müssen.
 \end{praxis}
-

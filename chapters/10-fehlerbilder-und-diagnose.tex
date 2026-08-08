@@ -1,6 +1,6 @@
 \chapter{Fehlerbilder und Diagnose}
 
-Fehler in KI-Workflows entstehen selten nur an einer Stelle. Ursache kann ein unklarer Auftrag, ungeeigneter Kontext, eine schwache Quelle, ein fehlgeschlagenes Werkzeug oder eine unzureichende Prüfung sein. Statt denselben Prompt immer länger zu machen, sollte die Diagnose die fehlerhafte Ebene bestimmen.
+Wenn du mit Bauchschmerzen zum Arzt gehst, fragt der Arzt nicht sofort nach einer Operation. Er stellt gezielte Fragen: Wo genau tut es weh? Seit wann? Nach dem Essen oder unabhängig davon? Erst aus diesen Symptomen leitet er eine Diagnose ab -- und behandelt dann genau die Ursache, nicht irgendein Symptom. Genauso sollte man mit einem missglückten KI-Ergebnis umgehen. Fehler in KI-Workflows entstehen selten nur an einer Stelle. Ursache kann ein unklarer Auftrag, ungeeigneter Kontext, eine schwache Quelle, ein fehlgeschlagenes Werkzeug oder eine unzureichende Prüfung sein. Statt denselben Prompt immer länger zu machen -- wie ein Patient, der einfach mehr Tabletten schluckt, ohne die Ursache zu kennen --, sollte die Diagnose die fehlerhafte Ebene bestimmen.
 
 \begin{longtable}{@{}p{.25\textwidth}p{.31\textwidth}p{.36\textwidth}@{}}\toprule
 \textbf{Symptom}&\textbf{Wahrscheinliche Ursache}&\textbf{Gezielte Verbesserung}\\\midrule\endhead
@@ -26,15 +26,20 @@ Ergebnis variiert stark&Definition zu abstrakt&Positives Beispiel, Gegenbeispiel
 \item \textbf{Ausgabe:} Wurde das Ergebnis inhaltlich und visuell geprüft?
 \end{enumerate}
 
+Diese fünf Fragen funktionieren wie die Checkliste eines Automechanikers, der ein merkwürdiges Geräusch im Motor sucht: Erst wird die Zündung geprüft, dann die Zufuhr, dann die einzelnen Teile -- statt wahllos an der Karosserie zu klopfen und zu hoffen, dass das Geräusch verschwindet.
+
 \section{Die kleinste wirksame Korrektur}
 
-Ändere bei einem fehlgeschlagenen Versuch möglichst nur eine Variable. Ergänze beispielsweise zuerst die Zielgruppe, dann separat ein Format. Werden gleichzeitig zehn Regeln geändert, bleibt unklar, welche davon die Verbesserung verursacht hat. Dieses Vorgehen macht Prompt- und Workflow-Entwicklung zu einem nachvollziehbaren Experiment.
+Ändere bei einem fehlgeschlagenen Versuch möglichst nur eine Variable. Ergänze beispielsweise zuerst die Zielgruppe, dann separat ein Format. Werden gleichzeitig zehn Regeln geändert, bleibt unklar, welche davon die Verbesserung verursacht hat -- so wie ein Wissenschaftler in einem Experiment immer nur eine Zutat verändert, um zu sehen, was wirklich den Unterschied macht. Dieses Vorgehen macht Prompt- und Workflow-Entwicklung zu einem nachvollziehbaren Experiment.
+
+\section{Ein durchgerechnetes Beispiel}
+
+Angenommen, du hast \texttt{/vergleich} nach drei Cloud-Anbietern gefragt und die Tabelle zeigt bei einem Anbieter einen Preis in Dollar, bei den anderen in Euro, ohne Hinweis auf den Wechselkurs. Nach der Fünf-Fragen-Checkliste liegt der Fehler nicht am Auftrag (der war klar) und nicht am Kontext, sondern bei der Evidenz: Die Rohdaten wurden nicht vereinheitlicht. Die gezielte Korrektur lautet nicht ``mach nochmal eine bessere Tabelle'', sondern die eine präzise Ergänzung: ``Rechne alle Preise in Euro um und nenne den verwendeten Wechselkurs mit Datum.''
 
 \section{Wann man nicht weiter automatisieren sollte}
 
-Ein Workflow ist ein schlechter Automatisierungskandidat, wenn der Zweck bei jedem Durchlauf wechselt, zentrale Daten nicht zuverlässig verfügbar sind oder eine kleine Fehlentscheidung große Schäden verursachen kann. In solchen Fällen ist KI als Analyse- oder Entwurfswerkzeug oft wertvoller als als autonomer Ausführer.
+Ein Workflow ist ein schlechter Automatisierungskandidat, wenn der Zweck bei jedem Durchlauf wechselt, zentrale Daten nicht zuverlässig verfügbar sind oder eine kleine Fehlentscheidung große Schäden verursachen kann. In solchen Fällen ist KI als Analyse- oder Entwurfswerkzeug oft wertvoller als als autonomer Ausführer -- ein Hausarzt überweist bei einem komplizierten Fall auch lieber an einen Spezialisten, statt selbst zu operieren.
 
 \begin{praxis}
 Nimm ein enttäuschendes Ergebnis aus einem früheren Chat. Ordne den Fehler einer der fünf Diagnosefragen zu und ändere nur diese Ebene. Dokumentiere, ob die zweite Ausgabe messbar besser geworden ist.
 \end{praxis}
-

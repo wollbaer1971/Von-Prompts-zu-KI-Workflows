@@ -1,6 +1,6 @@
 \chapter{Tool Calling und Orchestrierung}
 
-Ein Sprachmodell erzeugt zunächst Sprache. Viele reale Aufgaben erfordern jedoch aktuelle Informationen, genaue Berechnungen, Dateizugriff oder Aktionen in anderen Systemen. Tool Calling verbindet das Modell mit solchen Fähigkeiten. Das Modell entscheidet, welches Werkzeug benötigt wird, erzeugt einen strukturierten Aufruf und verarbeitet die zurückgegebenen Daten.
+Stell dir einen Küchenchef vor, der ein Gericht zubereitet und plötzlich merkt: Die Tomaten sind alle. Ein schlechter Koch würde einfach irgendetwas Rotes nehmen und hoffen, dass es niemand merkt. Ein guter Koch greift zum Telefon, ruft beim Gemüsehändler an und bestellt frische Tomaten -- er verlässt die Küche gedanklich kurz, holt sich echte, aktuelle Information und macht dann weiter. Genau das ist Tool Calling: Ein Sprachmodell erzeugt zunächst Sprache, aus dem eigenen ``Gedächtnis''. Viele reale Aufgaben erfordern jedoch aktuelle Informationen, genaue Berechnungen, Dateizugriff oder Aktionen in anderen Systemen. Tool Calling verbindet das Modell mit solchen Fähigkeiten. Das Modell entscheidet, welches Werkzeug benötigt wird, erzeugt einen strukturierten Aufruf und verarbeitet die zurückgegebenen Daten -- statt zu raten, greift es zum Telefonhörer.
 
 \input{diagrams/03-tool-calling-flow.tex}
 
@@ -9,18 +9,18 @@ Ein Sprachmodell erzeugt zunächst Sprache. Viele reale Aufgaben erfordern jedoc
 Ein Werkzeugzyklus besteht aus fünf Schritten:
 
 \begin{enumerate}
-\item \textbf{Bedarf erkennen:} Welche Information oder Handlung fehlt?
-\item \textbf{Werkzeug wählen:} Suche, Rechner, Dateiwerkzeug, Browser oder App.
-\item \textbf{Aufruf formulieren:} Parameter wie Suchbegriff, Dateiname oder Zeitraum bestimmen.
-\item \textbf{Ergebnis interpretieren:} Rückgabe auf Relevanz, Fehler und Vollständigkeit prüfen.
-\item \textbf{Weiterarbeiten oder abschließen:} Nächsten Schritt wählen oder Ergebnis ausgeben.
+\item \textbf{Bedarf erkennen:} Welche Information oder Handlung fehlt? (Die Tomaten sind alle.)
+\item \textbf{Werkzeug wählen:} Suche, Rechner, Dateiwerkzeug, Browser oder App. (Den Gemüsehändler anrufen, nicht den Klempner.)
+\item \textbf{Aufruf formulieren:} Parameter wie Suchbegriff, Dateiname oder Zeitraum bestimmen. (Fünf Kilo, reife Tomaten, heute liefern.)
+\item \textbf{Ergebnis interpretieren:} Rückgabe auf Relevanz, Fehler und Vollständigkeit prüfen. (Sind wirklich Tomaten gekommen, oder aus Versehen Gurken?)
+\item \textbf{Weiterarbeiten oder abschließen:} Nächsten Schritt wählen oder Ergebnis ausgeben. (Weiterkochen oder nochmal anrufen.)
 \end{enumerate}
 
-Ein einzelner Auftrag kann mehrere Zyklen enthalten. Für einen Produktvergleich müssen beispielsweise zuerst aktuelle Daten recherchiert, anschließend Werte normalisiert, Kosten berechnet und schließlich Empfehlungen formuliert werden.
+Ein einzelner Auftrag kann mehrere Zyklen enthalten. Für einen Produktvergleich müssen beispielsweise zuerst aktuelle Daten recherchiert, anschließend Werte normalisiert, Kosten berechnet und schließlich Empfehlungen formuliert werden -- so wie ein ganzes Menü mehrere Anrufe bei verschiedenen Lieferanten braucht, nicht nur einen.
 
 \section{Was Orchestrierung bedeutet}
 
-Orchestrierung ist die Koordination dieser Schritte. Sie verwaltet Reihenfolge, Abhängigkeiten, Zwischenergebnisse und Abbruchbedingungen. Gute Orchestrierung berücksichtigt, dass manche Schritte parallel möglich sind, andere aber ein vorheriges Ergebnis benötigen.
+Orchestrierung ist die Koordination dieser Schritte. Sie verwaltet Reihenfolge, Abhängigkeiten, Zwischenergebnisse und Abbruchbedingungen -- wie ein Küchenchef, der weiß, dass die Sauce köcheln muss, während gleichzeitig das Fleisch angebraten wird, der Nachtisch aber erst ganz am Ende drankommt. Gute Orchestrierung berücksichtigt, dass manche Schritte parallel möglich sind, andere aber ein vorheriges Ergebnis benötigen.
 
 \begin{lstlisting}
 Ziel verstehen
@@ -34,7 +34,7 @@ Ziel verstehen
 
 \section{Warum Prüfschritte wichtig sind}
 
-Ein technisch erfolgreicher Werkzeugaufruf ist noch kein inhaltlich richtiges Ergebnis. Eine Websuche kann irrelevante Treffer liefern, eine Datei kann veraltet sein, eine Tabelle kann Einheiten vermischen und ein Browser kann eine falsche Schaltfläche auswählen. Deshalb sollte der Workflow mindestens folgende Fragen beantworten:
+Ein technisch erfolgreicher Werkzeugaufruf ist noch kein inhaltlich richtiges Ergebnis. Eine Websuche kann irrelevante Treffer liefern, eine Datei kann veraltet sein, eine Tabelle kann Einheiten vermischen und ein Browser kann eine falsche Schaltfläche auswählen -- der Gemüsehändler am Telefon könnte sich auch einfach verhört und Gurken statt Tomaten losgeschickt haben. Deshalb sollte der Workflow mindestens folgende Fragen beantworten:
 
 \begin{itemize}
 \item Stammt das Ergebnis aus der erwarteten Quelle und dem richtigen Zeitraum?
@@ -46,9 +46,12 @@ Ein technisch erfolgreicher Werkzeugaufruf ist noch kein inhaltlich richtiges Er
 
 \section{Fehlerbehandlung und Abbruch}
 
-Robuste Workflows definieren, was bei einem Fehler geschieht. Ein fehlgeschlagener Aufruf kann einmal mit korrigierten Parametern wiederholt werden. Danach sollte entweder ein alternatives Werkzeug verwendet oder die Unsicherheit an den Nutzer eskaliert werden. Endlose Wiederholungen sind kein Zeichen von Autonomie, sondern von fehlenden Abbruchkriterien.
+Robuste Workflows definieren, was bei einem Fehler geschieht. Ein fehlgeschlagener Aufruf kann einmal mit korrigierten Parametern wiederholt werden -- so wie ein zweiter Anruf, falls die Leitung beim ersten Mal besetzt war. Danach sollte entweder ein alternatives Werkzeug verwendet oder die Unsicherheit an den Nutzer eskaliert werden. Endlose Wiederholungen sind kein Zeichen von Autonomie, sondern von fehlenden Abbruchkriterien -- ein Koch, der zwanzig Mal denselben besetzten Händler anruft, statt es beim zweiten Geschäft nebenan zu versuchen, verschwendet nur Zeit.
+
+\section{Welche Arten von Werkzeugen es typischerweise gibt}
+
+In der Praxis lassen sich Werkzeuge grob in vier Familien einteilen: \textbf{Informationswerkzeuge} wie Websuche oder Dokumentensuche liefern aktuelles Wissen. \textbf{Berechnungswerkzeuge} wie ein Codeausführer oder Tabellenrechner liefern exakte Zahlen, bei denen Sprachmodelle allein anfällig für Rechenfehler sind. \textbf{Dateiwerkzeuge} lesen, erzeugen oder verändern Dokumente, Bilder oder Tabellen. \textbf{Aktionswerkzeuge} greifen in externe Systeme ein, etwa einen Kalender, ein E-Mail-Postfach oder eine Projektverwaltung -- und verdienen deshalb die größte Vorsicht, weil ihre Wirkung über den Chat hinausreicht.
 
 \begin{praxis}
 Formuliere einen Auftrag, der Recherche und Berechnung kombiniert. Lass das System vor Beginn einen kurzen Werkzeugplan nennen. Prüfe nach Abschluss, ob jeder Werkzeugaufruf einen erkennbaren Beitrag zum Ergebnis geleistet hat.
 \end{praxis}
-

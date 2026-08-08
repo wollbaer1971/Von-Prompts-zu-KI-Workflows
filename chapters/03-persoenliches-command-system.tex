@@ -1,6 +1,6 @@
 \chapter{Das persönliche Command-System}
 
-Ein persönliches Command-System ist eine kleine, lesbare Arbeitssprache für wiederkehrende Aufgaben. Es soll häufige Qualitätsanforderungen bündeln, ohne die Kommunikation unnötig zu verkomplizieren. Ein gutes Set enthält wenige, klar unterscheidbare Befehle und kombinierbare Modifier.
+Ein persönliches Command-System ist wie ein gut sortierter Werkzeugkasten im Keller: Statt bei jedem Problem erst lange zu suchen, greifst du gezielt zum Schraubenzieher, zum Hammer oder zur Zange -- und mit ein paar Aufsätzen (den Modifiern) passt du das Werkzeug noch genauer an die Aufgabe an. Es ist eine kleine, lesbare Arbeitssprache für wiederkehrende Aufgaben. Sie soll häufige Qualitätsanforderungen bündeln, ohne die Kommunikation unnötig zu verkomplizieren. Ein gutes Set enthält wenige, klar unterscheidbare Befehle und kombinierbare Modifier.
 
 \section{Grundbefehle und ihr erwartetes Ergebnis}
 
@@ -21,9 +21,11 @@ Ein persönliches Command-System ist eine kleine, lesbare Arbeitssprache für wi
 \texttt{/lernen}&Einen Lernpfad mit kurzen Erklärungen, Übungen, Rückmeldung und Transfer gestalten.\\\bottomrule
 \end{longtable}
 
+Jeder Command ist wie ein eigenes Werkzeug mit klarer Aufgabe: \texttt{/analyse} ist der Schraubenzieher, mit dem du ein Problem in seine Einzelteile zerlegst. \texttt{/entscheidung} ist eher eine Waage, die Optionen gegeneinander abwägt. Wer beide verwechselt -- etwa \texttt{/analyse} verwendet, obwohl eigentlich eine klare Empfehlung gebraucht wird --, bekommt zwar eine Antwort, aber nicht die passende Form.
+
 \section{Modifier als zweite Ebene}
 
-Modifier verändern Tiefe oder Darstellungsform, ohne einen neuen Grundbefehl zu benötigen.
+Modifier verändern Tiefe oder Darstellungsform, ohne einen neuen Grundbefehl zu benötigen -- so wie ein Aufsatz, den du auf den Schraubenzieher steckst, um auch Kreuzschlitzschrauben zu lösen, ohne ein komplett neues Werkzeug zu kaufen.
 
 \begin{tabularx}{\textwidth}{@{}lXlX@{}}\toprule
 \texttt{+kurz}&nur Entscheidung und Kerngründe&\texttt{+tief}&Zusammenhänge und Randfälle\\
@@ -34,7 +36,7 @@ Modifier verändern Tiefe oder Darstellungsform, ohne einen neuen Grundbefehl zu
 
 \section{Prioritäten und Konflikte}
 
-Modifier können einander widersprechen. \texttt{+kurz} und \texttt{+tief} sollten beispielsweise so interpretiert werden, dass die Analyse gründlich, die Darstellung aber komprimiert ist. \texttt{+tabelle} bedeutet nicht, dass jeder Gedanke in eine Tabelle gezwängt wird. Die Tabelle ist für wiederkehrende Felder geeignet; Begründung und Einschränkungen bleiben Fließtext.
+Modifier können einander widersprechen. \texttt{+kurz} und \texttt{+tief} sollten beispielsweise so interpretiert werden, dass die Analyse gründlich, die Darstellung aber komprimiert ist -- wie ein Taschenmesser, das viele Funktionen in einer kleinen Hülle vereint, statt jede einzelne riesig auszubauen. \texttt{+tabelle} bedeutet nicht, dass jeder Gedanke in eine Tabelle gezwängt wird. Die Tabelle ist für wiederkehrende Felder geeignet; Begründung und Einschränkungen bleiben Fließtext.
 
 \begin{lstlisting}
 /entscheidung +kritisch +tabelle +kurz
@@ -45,9 +47,20 @@ Entscheidungshorizont: vier Wochen.
 
 \section{Commands zuverlässig definieren}
 
-Eine gute Definition enthält Zweck, Mindeststruktur, Qualitätsregeln und Abbruchbedingungen. Ein Beispiel verbessert die Zuverlässigkeit. Nicht sinnvoll sind Dutzende fast identische Befehle, unklare Namen oder Regeln, die nur in einem einzigen Sonderfall gelten.
+Eine gute Definition enthält Zweck, Mindeststruktur, Qualitätsregeln und Abbruchbedingungen. Ein Beispiel verbessert die Zuverlässigkeit -- vergleichbar mit einer Bedienungsanleitung, die nicht nur sagt ``Knopf drücken'', sondern auch zeigt, was danach passieren soll. Nicht sinnvoll sind Dutzende fast identische Befehle, unklare Namen oder Regeln, die nur in einem einzigen Sonderfall gelten.
+
+\begin{lstlisting}
+/brief
+Zweck: Kurzüberblick für Entscheidungsträger ohne Vorwissen.
+Struktur: Ziel, Ausgangslage, drei Kernaussagen, Risiken, nächster Schritt.
+Qualitätsregel: höchstens eine halbe Seite, keine Fachbegriffe ohne Erklärung.
+Abbruch: Bei fehlenden Zahlen explizit als Annahme kennzeichnen, nicht erfinden.
+\end{lstlisting}
+
+\section{Den eigenen Werkzeugkasten pflegen}
+
+Ein Werkzeugkasten, in dem sich Schrauben, Zettel und dreifach vorhandene Hämmer stapeln, wird irgendwann unbrauchbar. Genauso verhält es sich mit einem Command-System: Prüfe alle paar Wochen, welche Befehle du wirklich benutzt hast. Command, die nie zum Einsatz kommen, dürfen gelöscht werden. Zwei Command mit fast identischer Wirkung sollten zu einem zusammengelegt werden. So bleibt das System klein genug, um es tatsächlich im Kopf zu behalten -- ein Werkzeugkasten, den niemand mehr durchschaut, wird schneller ignoriert als benutzt.
 
 \begin{praxis}
 Wähle drei Aufgaben, die du mindestens monatlich erledigst. Formuliere für jede einen Command mit höchstens fünf Qualitätsregeln. Teste jeden Command an zwei unterschiedlichen Beispielen und notiere, welche Regel missverstanden wurde.
 \end{praxis}
-

@@ -1,28 +1,37 @@
 \chapter{Vom Prompt zum Arbeitsauftrag}
 
-Ein klassischer Prompt ist häufig wie eine einzelne Frage formuliert: Man gibt Text ein und erwartet Text zurück. Ein moderner KI-Arbeitsauftrag geht weiter. Er beschreibt nicht nur, \emph{was gesagt}, sondern welches Ergebnis hergestellt werden soll. Dieses Ergebnis kann eine Entscheidungsvorlage, eine Recherche, eine Tabelle, ein Programm, ein Unterrichtsentwurf oder ein vollständiges Dokument sein.
+Stell dir vor, du gehst in ein Restaurant und sagst nur: ``Ich hätte gern etwas zu essen.'' Der Kellner steht ratlos da -- Pizza? Suppe? Mit oder ohne Fleisch? Wie viel Zeit hast du? Sagst du stattdessen: ``Eine Pizza Margherita, ohne Oliven, in zwanzig Minuten, weil ich danach zum Training muss'', kann die Küche sofort loslegen und du bekommst genau das Richtige. Ein klassischer Prompt ist häufig wie eine einzelne Frage formuliert: Man gibt Text ein und erwartet Text zurück. Ein moderner KI-Arbeitsauftrag ist die ausformulierte Bestellung. Er beschreibt nicht nur, \emph{was gesagt}, sondern welches Ergebnis hergestellt werden soll. Dieses Ergebnis kann eine Entscheidungsvorlage, eine Recherche, eine Tabelle, ein Programm, ein Unterrichtsentwurf oder ein vollständiges Dokument sein.
 
-Der Unterschied liegt weniger in der Länge des Prompts als in seiner Funktion. Ein Prompt kann einen einzelnen Denkschritt auslösen. Ein Arbeitsauftrag definiert dagegen einen kleinen Prozess: Ausgangslage verstehen, fehlende Informationen beschaffen, Zwischenergebnisse prüfen und das Ergebnis in einer brauchbaren Form bereitstellen.
+Der Unterschied liegt weniger in der Länge des Prompts als in seiner Funktion. Ein Prompt kann einen einzelnen Denkschritt auslösen. Ein Arbeitsauftrag definiert dagegen einen kleinen Prozess: Ausgangslage verstehen, fehlende Informationen beschaffen, Zwischenergebnisse prüfen und das Ergebnis in einer brauchbaren Form bereitstellen -- so wie die Küche aus deiner Bestellung Schritt für Schritt eine fertige Pizza macht, statt dir nur ein Rezept in die Hand zu drücken.
 
 \input{diagrams/01-auftrag-orchestrierung.tex}
 
 \begin{merke}
-Ein guter Arbeitsauftrag nennt Ziel, Kontext, Grenzen und Erfolgskriterien. Er beschreibt die gewünschte Wirkung, ohne jeden internen Verarbeitungsschritt vorzuschreiben.
+Ein guter Arbeitsauftrag nennt Ziel, Kontext, Grenzen und Erfolgskriterien. Er beschreibt die gewünschte Wirkung, ohne jeden internen Verarbeitungsschritt vorzuschreiben -- genau wie du dem Koch nicht sagen musst, in welcher Reihenfolge er den Teig knetet.
 \end{merke}
 
 \section{Vier Ebenen eines guten Arbeitsauftrags}
 
 \subsection{Das Ergebnis eindeutig benennen}
-Statt ``Erkläre Wissensmanagement'' ist ``Erstelle eine zweiseitige Entscheidungsvorlage für die Einführung einer Wissensdatenbank'' wesentlich handlungsnäher. Das gewünschte Artefakt gibt dem System eine Zielrichtung. Hilfreiche Ergebnisformen sind beispielsweise Bericht, Checkliste, Vergleichsmatrix, Lernpfad, Präsentation, Quellensammlung oder ausführbarer Code.
+Statt ``Erkläre Wissensmanagement'' ist ``Erstelle eine zweiseitige Entscheidungsvorlage für die Einführung einer Wissensdatenbank'' wesentlich handlungsnäher. Das gewünschte Artefakt gibt dem System eine Zielrichtung -- so wie ``eine fertige Pizza'' etwas anderes verlangt als ``irgendetwas mit Tomaten''. Hilfreiche Ergebnisformen sind beispielsweise Bericht, Checkliste, Vergleichsmatrix, Lernpfad, Präsentation, Quellensammlung oder ausführbarer Code.
 
 \subsection{Den Nutzungskontext liefern}
-Dasselbe Thema muss für eine Geschäftsführung, eine Fachabteilung und eine Berufsschulklasse unterschiedlich aufbereitet werden. Zum Kontext gehören Zielgruppe, Vorwissen, Anlass und die Entscheidung oder Handlung, die das Ergebnis unterstützen soll. Kontext verhindert, dass eine fachlich richtige Antwort praktisch unbrauchbar bleibt.
+Dasselbe Thema muss für eine Geschäftsführung, eine Fachabteilung und eine Berufsschulklasse unterschiedlich aufbereitet werden -- genauso, wie du deiner kleinen Schwester ein Videospiel anders erklärst als deinem besten Freund, der es schon kennt. Zum Kontext gehören Zielgruppe, Vorwissen, Anlass und die Entscheidung oder Handlung, die das Ergebnis unterstützen soll. Kontext verhindert, dass eine fachlich richtige Antwort praktisch unbrauchbar bleibt.
 
 \subsection{Grenzen und Freiräume festlegen}
-Grenzen können Budget, Zeit, Rechtsraum, Quellenarten, technische Plattform, Ton, Länge und Berechtigungen betreffen. Ebenso wichtig ist die Frage, wo das System selbst entscheiden darf. Zu enge Vorgaben verhindern sinnvolle Lösungen; zu offene Aufträge führen zu Annahmen, die möglicherweise nicht zur Situation passen.
+Grenzen können Budget, Zeit, Rechtsraum, Quellenarten, technische Plattform, Ton, Länge und Berechtigungen betreffen. Ebenso wichtig ist die Frage, wo das System selbst entscheiden darf. Zu enge Vorgaben verhindern sinnvolle Lösungen -- wie ein Kochrezept, das für jede Zutat exakt das Gramm vorschreibt und keinen Spielraum für eine reifere oder unreifere Tomate lässt. Zu offene Aufträge führen dagegen zu Annahmen, die möglicherweise nicht zur Situation passen.
 
 \subsection{Qualität prüfbar machen}
-``Mach es gut'' ist kein prüfbares Kriterium. Besser sind konkrete Anforderungen: mindestens drei belastbare Quellen, klare Trennung von Fakten und Annahmen, vollständige Kostenrechnung, lauffähiger Test oder eine Zusammenfassung für Nichtfachleute. Je wichtiger die Aufgabe, desto expliziter sollten die Prüfkriterien sein.
+``Mach es gut'' ist kein prüfbares Kriterium, genauso wenig wie ``koch was Leckeres'' dem Koch verrät, ob du Currywurst oder Sushi meinst. Besser sind konkrete Anforderungen: mindestens drei belastbare Quellen, klare Trennung von Fakten und Annahmen, vollständige Kostenrechnung, lauffähiger Test oder eine Zusammenfassung für Nichtfachleute. Je wichtiger die Aufgabe, desto expliziter sollten die Prüfkriterien sein.
+
+\section{Ein Beispiel: schwach gegen stark}
+
+\begin{tabularx}{\textwidth}{@{}p{.46\textwidth}X@{}}\toprule
+\textbf{Schwacher Prompt}&\textbf{Starker Arbeitsauftrag}\\\midrule
+``Erkläre RAG''&``Erstelle für einen Softwareentwickler einen 20-minütigen Lernpfad zu RAG, mit Mini-Beispiel, typischen Fehlern und Selbsttest.''\\
+``Schreib was über Hunde''&``Schreibe für ein Schulreferat (7. Klasse) einen einseitigen Steckbrief über Golden Retriever: Herkunft, Charakter, Haltung, drei Quellenangaben.''\\
+``Mach eine Tabelle''&``Erstelle eine Tabelle mit vier Spalten (Name, Preis, Vorteil, Nachteil) für drei Cloud-Speicher-Anbieter, sortiert nach Preis.''\\\bottomrule
+\end{tabularx}
 
 \section{Eine praktische Auftragsformel}
 
@@ -47,9 +56,12 @@ Liefere eine Vergleichstabelle, eine Empfehlung und fünf nächste Schritte.
 
 \section{Wann Rückfragen sinnvoll sind}
 
-Rückfragen sind dann wichtig, wenn eine fehlende Angabe die Richtung wesentlich verändert, etwa Budget, Rechtsraum oder Zielgruppe. Fehlt nur eine nebensächliche Information, kann das System eine vernünftige Annahme treffen und sie offen nennen. Gute Zusammenarbeit bedeutet daher nicht, jede Unklarheit vorab zu beseitigen, sondern folgenreiche Unsicherheit von unkritischen Details zu unterscheiden.
+Rückfragen sind dann wichtig, wenn eine fehlende Angabe die Richtung wesentlich verändert, etwa Budget, Rechtsraum oder Zielgruppe -- so wie ein Kellner nachfragt, ob du eine Allergie hast, aber nicht, welche Farbe deine Serviette haben soll. Fehlt nur eine nebensächliche Information, kann das System eine vernünftige Annahme treffen und sie offen nennen. Gute Zusammenarbeit bedeutet daher nicht, jede Unklarheit vorab zu beseitigen, sondern folgenreiche Unsicherheit von unkritischen Details zu unterscheiden.
+
+\begin{achtung}
+Zu viele Vorgaben können genauso schaden wie zu wenige. Wer jeden einzelnen Zwischenschritt vorschreibt, nimmt dem System die Möglichkeit, einen besseren Weg zu finden, den du vielleicht gar nicht kanntest. Nenne das Ziel klar, aber lass beim Weg dorthin etwas Spielraum.
+\end{achtung}
 
 \begin{praxis}
 Vergleiche drei Varianten: ``Erkläre RAG'', dann ``Erkläre RAG für einen Softwareentwickler mit Mini-Beispiel'' und schließlich einen vollständigen Arbeitsauftrag mit Zeitrahmen, Selbsttest und Erfolgskriterien. Markiere, welche zusätzliche Angabe die größte Qualitätsverbesserung bewirkt hat.
 \end{praxis}
-

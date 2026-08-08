@@ -1,40 +1,43 @@
 \chapter{Apps, Skills, Plugins und MCP}
 
-Moderne KI-Systeme bestehen nicht nur aus einem Modell. Sie verbinden Verhaltensregeln, Datenquellen, Werkzeuge und Benutzungsoberflächen. Die Begriffe Apps, Skills, Plugins und MCP beschreiben unterschiedliche Teile dieser Architektur.
+Drei Dinge werden hier oft durcheinandergebracht, dabei lassen sie sich mit einem einfachen Bild trennen: Ein \textbf{Skill} ist wie ein Kochrezept -- eine genaue Anleitung, \emph{wie} etwas gemacht wird. Eine \textbf{App} ist wie ein Hausschlüssel -- sie öffnet dir Zugang zu einem bestimmten Ort, etwa deinem Kalender oder deinen Dokumenten. Und \textbf{MCP} ist wie eine Steckdose mit europäischem Normstecker: Jedes Gerät, das den gleichen Stecker hat, passt hinein, egal von welchem Hersteller es kommt -- niemand muss für jedes neue Gerät eine neue Wand aufreißen. Moderne KI-Systeme bestehen nicht nur aus einem Modell. Sie verbinden Verhaltensregeln, Datenquellen, Werkzeuge und Benutzungsoberflächen. Die Begriffe Apps, Skills, Plugins und MCP beschreiben unterschiedliche Teile dieser Architektur.
 
 \input{diagrams/04-apps-skills-mcp.tex}
 
 \section{Apps: Zugriff auf externe Systeme}
 
-Apps verbinden eine KI-Anwendung mit Diensten wie Kalendern, Dokumentablagen, Projektmanagement oder Kommunikation. Abhängig von der jeweiligen App können sie Inhalte suchen, Kontext bereitstellen, Daten vorab synchronisieren oder nach Bestätigung Aktionen ausführen. Die vorhandenen Rechte des verbundenen Kontos und die Einstellungen des Arbeitsbereichs begrenzen den Zugriff.
+Apps verbinden eine KI-Anwendung mit Diensten wie Kalendern, Dokumentablagen, Projektmanagement oder Kommunikation. Abhängig von der jeweiligen App können sie Inhalte suchen, Kontext bereitstellen, Daten vorab synchronisieren oder nach Bestätigung Aktionen ausführen. Die vorhandenen Rechte des verbundenen Kontos und die Einstellungen des Arbeitsbereichs begrenzen den Zugriff -- wie ein Hausschlüssel, der zwar deine eigene Wohnungstür öffnet, aber nicht automatisch auch die Wohnung deines Nachbarn.
 
 Der praktische Wert liegt darin, dass Informationen nicht manuell kopiert werden müssen. Gleichzeitig entstehen neue Risiken: sensible Daten können in den Arbeitskontext gelangen, Suchergebnisse können unvollständig sein und Schreibaktionen können externe Wirkung haben.
 
 \section{Skills: wiederverwendbare Arbeitsverfahren}
 
-Ein Skill legt fest, \emph{wie} eine bestimmte Aufgabe bearbeitet werden soll. Er kann Anweisungen, Beispiele, Vorlagen, Prüfschritte und Hilfsprogramme enthalten. Während ein Command oft nur eine kurze Benutzerschnittstelle ist, beschreibt ein Skill den ausführlichen Ablauf dahinter.
+Ein Skill legt fest, \emph{wie} eine bestimmte Aufgabe bearbeitet werden soll. Er kann Anweisungen, Beispiele, Vorlagen, Prüfschritte und Hilfsprogramme enthalten. Während ein Command oft nur eine kurze Benutzerschnittstelle ist -- das Wort auf dem Rezeptumschlag --, beschreibt ein Skill den ausführlichen Ablauf dahinter -- die einzelnen Kochschritte mit Mengenangaben.
 
 Beispiel: Ein Skill für Besprechungsvorbereitung könnte den Kalendereintrag lesen, verknüpfte Dokumente suchen, offene Entscheidungen extrahieren und daraus eine standardisierte Vorbereitung erzeugen.
 
 \section{Plugins: gebündelte Fähigkeiten}
 
-Ein Plugin ist ein Paket, das mehrere zusammengehörige Komponenten bereitstellen kann, etwa Skills, Apps oder Vorlagen. Dadurch lässt sich eine gesamte Arbeitsdomäne gemeinsam installieren und aktualisieren. Der Begriff bezeichnet also eher die Verpackung als einen einzelnen Arbeitsschritt.
+Ein Plugin ist ein Paket, das mehrere zusammengehörige Komponenten bereitstellen kann, etwa Skills, Apps oder Vorlagen -- wie ein ganzes Kochbuch mit Rezepten, Einkaufslisten und Küchentipps in einem Band, statt jedes Blatt einzeln zu sammeln. Dadurch lässt sich eine gesamte Arbeitsdomäne gemeinsam installieren und aktualisieren. Der Begriff bezeichnet also eher die Verpackung als einen einzelnen Arbeitsschritt.
 
 \section{MCP: gemeinsame Sprache für Werkzeuge}
 
-Das Model Context Protocol (MCP) standardisiert, wie ein KI-Client Werkzeuge und Ressourcen eines Servers entdecken und verwenden kann. Ein MCP-Server kann beispielsweise eine Datenbankabfrage, eine Dokumentensuche oder eine Geschäftsfunktion anbieten. Der Client erhält Beschreibungen und strukturierte Eingabeparameter und kann passende Aufrufe erzeugen.
+Das Model Context Protocol (MCP) standardisiert, wie ein KI-Client Werkzeuge und Ressourcen eines Servers entdecken und verwenden kann -- der europäische Normstecker für KI-Werkzeuge. Ein MCP-Server kann beispielsweise eine Datenbankabfrage, eine Dokumentensuche oder eine Geschäftsfunktion anbieten. Der Client erhält Beschreibungen und strukturierte Eingabeparameter und kann passende Aufrufe erzeugen. Ohne einen solchen gemeinsamen Standard bräuchte jede KI-Anwendung für jedes einzelne Werkzeug eine eigene, individuell gebaute Verbindung -- wie früher, als jedes Land eigene Steckertypen hatte und Reisende ständig Adapter mitschleppen mussten.
 
-MCP löst nicht automatisch Fragen der Qualität oder Berechtigung. Es schafft eine technische Schnittstelle; Authentifizierung, Rechte, Protokollierung und sichere Werkzeugdefinition bleiben Aufgaben der beteiligten Systeme.
+MCP löst nicht automatisch Fragen der Qualität oder Berechtigung. Es schafft eine technische Schnittstelle; Authentifizierung, Rechte, Protokollierung und sichere Werkzeugdefinition bleiben Aufgaben der beteiligten Systeme -- der Normstecker verhindert nicht, dass jemand ein kaputtes Gerät einsteckt.
 
 \begin{merke}
-Skill = Arbeitsweise. App = verbundener Dienst. Plugin = Paket aus Fähigkeiten. MCP = standardisierte Verbindung zu Werkzeugen und Ressourcen.
+Skill = Arbeitsweise (das Rezept). App = verbundener Dienst (der Schlüssel). Plugin = Paket aus Fähigkeiten (das Kochbuch). MCP = standardisierte Verbindung zu Werkzeugen und Ressourcen (die Steckdose).
 \end{merke}
 
 \section{Ein vollständiges Beispiel}
 
-Beim Auftrag ``Bereite mein nächstes Projektgespräch vor'' könnte ein Skill die benötigten Schritte festlegen. Eine Kalender-App liefert Termin und Teilnehmer, eine Dokument-App liefert das letzte Protokoll, und MCP kann die technische Schnittstelle zu einem internen Projektsystem bilden. Die Orchestrierung verbindet alles zu einem Briefing.
+Beim Auftrag ``Bereite mein nächstes Projektgespräch vor'' könnte ein Skill die benötigten Schritte festlegen. Eine Kalender-App liefert Termin und Teilnehmer, eine Dokument-App liefert das letzte Protokoll, und MCP kann die technische Schnittstelle zu einem internen Projektsystem bilden. Die Orchestrierung verbindet alles zu einem Briefing -- der Skill ist das Rezept, die Apps liefern die Zutaten aus verschiedenen Läden, und MCP sorgt dafür, dass jeder Laden dieselbe Bestellsprache versteht.
+
+\section{Woran man den Unterschied im Alltag erkennt}
+
+Eine einfache Eselsbrücke: Wenn du fragst ``Wie mache ich das?'', denkst du an einen Skill. Wenn du fragst ``Wo kommen die Daten her?'', denkst du an eine App. Und wenn du fragst ``Wie sprechen die Systeme technisch miteinander?'', denkst du an MCP. Ein Plugin schließlich beantwortet die Frage ``Was gehört alles zusammen und wird gemeinsam installiert?''.
 
 \begin{praxis}
 Nimm einen eigenen Workflow und ordne jedes Element einer Kategorie zu: Benutzerziel, Skill-Regel, App-Zugriff, MCP-Werkzeug, Prüfschritt und externe Aktion. Markiere, an welchen Stellen Berechtigungen notwendig sind.
 \end{praxis}
-

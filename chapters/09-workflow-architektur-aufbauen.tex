@@ -1,24 +1,24 @@
 \chapter{Eine persönliche Workflow-Architektur aufbauen}
 
-Eine gute persönliche Architektur wächst aus realen Wiederholungen. Sie beginnt nicht mit möglichst vielen Befehlen, sondern mit wenigen Arbeitsweisen, die regelmäßig Zeit kosten oder Qualitätsprobleme verursachen. Jede Ebene soll eine klar abgegrenzte Aufgabe erfüllen.
+Denk an die Werkzeuge in einem Haus. Im Flur hängt ein kleiner Schlüsselbund mit den Dingen, die du wirklich jeden Tag brauchst. In der Garage steht eine Kiste mit Werkzeug für ein bestimmtes Projekt, etwa den Fahrradanhänger, den du gerade baust. Für Spezialaufgaben -- etwa einen Bohrhammer für eine einzige Wand -- leihst du dir das Gerät extra aus, statt es dauerhaft im Flur herumstehen zu haben. Genau nach diesem Prinzip lässt sich auch eine persönliche KI-Architektur aufbauen: Eine gute persönliche Architektur wächst aus realen Wiederholungen. Sie beginnt nicht mit möglichst vielen Befehlen, sondern mit wenigen Arbeitsweisen, die regelmäßig Zeit kosten oder Qualitätsprobleme verursachen. Jede Ebene soll eine klar abgegrenzte Aufgabe erfüllen.
 
 \input{diagrams/06-workflow-architektur.tex}
 
-\section{Ebene 1: Globale Arbeitspräferenzen}
+\section{Ebene 1: Globale Arbeitspräferenzen (der Schlüsselbund im Flur)}
 
-Globale Anweisungen enthalten Regeln, die fast immer gelten: gewünschte Sprache, Umgang mit Unsicherheit, bevorzugte Quellen, Grad der Kürze und Sicherheitsregeln. Auch ein kleines Command-Set kann hier liegen. Domänenspezifische Details gehören nicht hinein, weil sie sonst unpassend auf andere Chats wirken.
+Globale Anweisungen enthalten Regeln, die fast immer gelten: gewünschte Sprache, Umgang mit Unsicherheit, bevorzugte Quellen, Grad der Kürze und Sicherheitsregeln. Auch ein kleines Command-Set kann hier liegen. Domänenspezifische Details gehören nicht hinein, weil sie sonst unpassend auf andere Chats wirken -- niemand nimmt den Bohrhammer mit zum Einkaufen, nur weil er zufällig im Flur läge.
 
-\section{Ebene 2: Projekte und Kontext}
+\section{Ebene 2: Projekte und Kontext (die Werkzeugkiste in der Garage)}
 
 Ein Projekt bündelt zusammengehörige Chats, Dateien und Regeln. Für ein Unterrichtsprojekt können Zielgruppe, Schulform und didaktische Standards hinterlegt werden; ein Softwareprojekt enthält Architektur, Programmiersprache und Testkonventionen. Projektregeln dürfen globale Regeln präzisieren, sollten ihre Abweichungen aber bewusst machen.
 
-\section{Ebene 3: Spezialisierte Assistenten und Skills}
+\section{Ebene 3: Spezialisierte Assistenten und Skills (der Fachhandwerker)}
 
-Ein eigener Skill oder GPT lohnt sich, wenn eine Aufgabe ein stabiles Verfahren, eigenes Referenzmaterial oder ausgewählte Werkzeuge benötigt. Beispiele sind Angebotsprüfung, Sitzungsbriefings oder technische Dokumentation. Ein Spezialassistent sollte einen engen Zweck besitzen; ein allzuständiger Assistent wird schnell schwer wartbar.
+Ein eigener Skill oder GPT lohnt sich, wenn eine Aufgabe ein stabiles Verfahren, eigenes Referenzmaterial oder ausgewählte Werkzeuge benötigt -- so wie du für die Heizungswartung lieber einen Fachmann rufst, statt es selbst mit dem Flurwerkzeug zu versuchen. Beispiele sind Angebotsprüfung, Sitzungsbriefings oder technische Dokumentation. Ein Spezialassistent sollte einen engen Zweck besitzen; ein allzuständiger Assistent wird schnell schwer wartbar.
 
-\section{Ebene 4: Apps und Aktionen}
+\section{Ebene 4: Apps und Aktionen (das Leihgerät)}
 
-Apps werden erst dann verbunden, wenn ihr Nutzen klar ist. Beginne mit lesendem Zugriff und erweitere Berechtigungen nur für konkrete Arbeitsabläufe. Dokumentiere, welche Datenquelle wofür genutzt wird und an welcher Stelle eine externe Aktion bestätigt werden muss.
+Apps werden erst dann verbunden, wenn ihr Nutzen klar ist. Beginne mit lesendem Zugriff und erweitere Berechtigungen nur für konkrete Arbeitsabläufe -- genau wie du dir zuerst nur den Bohrer leihst und erst später, wenn wirklich nötig, auch die Bohrmaschine mit allen Aufsätzen. Dokumentiere, welche Datenquelle wofür genutzt wird und an welcher Stelle eine externe Aktion bestätigt werden muss.
 
 \section{Vorlage für benutzerdefinierte Anweisungen}
 
@@ -44,6 +44,10 @@ zu machenden Aktionen zeige Ziel und Wirkung und hole eine Bestätigung ein.
 \item Monatlich aufräumen: ungenutzte Regeln entfernen, ähnliche Regeln zusammenführen und Beispiele aktualisieren.
 \end{enumerate}
 
+\section{Ein Beispiel für den Aufbau über mehrere Wochen}
+
+In Woche eins fällt auf, dass wöchentliche Statusberichte immer nach demselben Muster geschrieben werden -- das wird ein globaler Command. In Woche zwei zeigt sich, dass ein bestimmtes Softwareprojekt eigene Testregeln braucht, die woanders nicht gelten -- das wandert in die Projektregeln. In Woche drei häuft sich die Arbeit an technischer Dokumentation so sehr, dass sich ein eigener Skill mit festen Vorlagen lohnt. Erst in Woche vier, als klar wird, dass Kalenderdaten manuell übertragen werden, kommt eine Kalender-App dazu. So wächst die Architektur entlang echter Bedürfnisse, statt von Anfang an alles auf einmal einzurichten.
+
 \begin{merke}
 Die beste Workflow-Architektur ist nicht die umfangreichste, sondern die kleinste Struktur, die wiederholt verlässliche Ergebnisse erzeugt.
 \end{merke}
@@ -51,4 +55,3 @@ Die beste Workflow-Architektur ist nicht die umfangreichste, sondern die kleinst
 \begin{praxis}
 Zeichne deine eigene Architektur mit vier Ebenen. Ordne jeden vorhandenen Command, jede Projektregel und jede App genau einer Ebene zu. Elemente ohne klaren Platz sind Kandidaten zum Vereinfachen oder Entfernen.
 \end{praxis}
-
