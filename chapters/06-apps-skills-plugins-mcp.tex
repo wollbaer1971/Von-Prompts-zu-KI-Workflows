@@ -16,6 +16,63 @@ Ein Skill legt fest, \emph{wie} eine bestimmte Aufgabe bearbeitet werden soll. E
 
 Beispiel: Ein Skill für Besprechungsvorbereitung könnte den Kalendereintrag lesen, verknüpfte Dokumente suchen, offene Entscheidungen extrahieren und daraus eine standardisierte Vorbereitung erzeugen.
 
+\section{Einen eigenen Skill erstellen}
+
+Genau wie du ein Familienrezept einmal sauber aufschreibst, damit es nicht jedes Mal neu aus dem Gedächtnis rekonstruiert werden muss, kannst du auch einen eigenen Skill aufschreiben. Du brauchst dafür keine Programmierkenntnisse -- ein Skill ist im Kern ein gut strukturierter Text, den du einmal sorgfältig formulierst und danach immer wieder verwendest.
+
+\subsection{Die Bausteine eines guten Skills}
+
+Ein brauchbarer Skill beantwortet fünf Fragen:
+
+\begin{enumerate}
+\item \textbf{Auslöser:} Wann soll der Skill verwendet werden? Ein Name, ein Command oder eine typische Formulierung genügt.
+\item \textbf{Zweck:} Welches Problem löst der Skill, und für wen?
+\item \textbf{Ablauf:} Welche Schritte werden in welcher Reihenfolge ausgeführt? Auch: Welche Werkzeuge -- Suche, Datei, App -- werden dabei gebraucht?
+\item \textbf{Qualitätsregeln:} Woran erkennt man ein gutes Ergebnis? Was darf auf keinen Fall passieren?
+\item \textbf{Beispiel:} Ein vollständiges Beispiel mit Eingabe und erwarteter Ausgabe -- wie ein Foto vom fertigen Gericht neben dem Rezept.
+\end{enumerate}
+
+\subsection{Ein Skill-Rezept zum Nachbauen}
+
+\begin{lstlisting}
+Skill: Besprechungsvorbereitung
+
+Auslöser: "Bereite mein Gespräch mit [Name] vor"
+oder der Command /briefing.
+
+Zweck: Innerhalb weniger Minuten eine verlässliche Grundlage
+für ein Gespräch liefern, ohne dass ich selbst suchen muss.
+
+Ablauf:
+1. Kalendereintrag lesen: Datum, Teilnehmer, Thema.
+2. Letztes gemeinsames Protokoll oder Dokument suchen.
+3. Offene Punkte und unbeantwortete Fragen daraus extrahieren.
+4. Drei mögliche Gesprächsziele formulieren.
+
+Qualitätsregeln:
+- Höchstens eine halbe Seite.
+- Jede Aussage aus dem Protokoll klar kennzeichnen, keine Vermutung
+  als Fakt darstellen (siehe Kapitel 5).
+- Wenn kein Protokoll gefunden wird, das explizit sagen statt zu raten.
+
+Beispiel:
+Eingabe: "Bereite mein Gespräch mit Frau Keller vor."
+Ausgabe: Kurzbriefing mit Termin, letzten Beschlüssen,
+zwei offenen Fragen und einem Gesprächsvorschlag.
+\end{lstlisting}
+
+\subsection{Wo ein Skill in der Praxis landet}
+
+Je nach Plattform kann derselbe Skill an unterschiedlichen Stellen hinterlegt werden: in benutzerdefinierten Anweisungen für den persönlichen Gebrauch, in Projektdateien für ein Team, in einem eigens erstellten GPT oder Assistenten, oder als eigenständige, installierbare Fähigkeit, falls die Plattform ein solches Konzept anbietet. Die genaue Bezeichnung und der Speicherort ändern sich mit der Produktoberfläche -- die Struktur aus Auslöser, Zweck, Ablauf, Qualitätsregeln und Beispiel bleibt jedoch über alle Plattformen hinweg gültig.
+
+\begin{achtung}
+Ein Skill, den niemand außer dir versteht, weil er zu knapp oder zu speziell formuliert ist, wird beim nächsten Update der Oberfläche schnell nutzlos. Schreibe ihn so, dass auch ein Kollege ohne Vorwissen ihn in einer Minute verstehen würde.
+\end{achtung}
+
+\begin{praxis}
+Wähle eine Aufgabe, die du mindestens einmal im Monat erledigst. Schreibe dafür einen vollständigen Skill nach dem obigen Muster: Auslöser, Zweck, Ablauf, Qualitätsregeln, Beispiel. Teste ihn zweimal mit unterschiedlichen Eingaben und ergänze eine Regel für den Fall, der beim ersten Versuch schiefging.
+\end{praxis}
+
 \section{Plugins: gebündelte Fähigkeiten}
 
 Ein Plugin ist ein Paket, das mehrere zusammengehörige Komponenten bereitstellen kann, etwa Skills, Apps oder Vorlagen -- wie ein ganzes Kochbuch mit Rezepten, Einkaufslisten und Küchentipps in einem Band, statt jedes Blatt einzeln zu sammeln. Dadurch lässt sich eine gesamte Arbeitsdomäne gemeinsam installieren und aktualisieren. Der Begriff bezeichnet also eher die Verpackung als einen einzelnen Arbeitsschritt.
