@@ -41,6 +41,47 @@ Eine Quelle kann einen Messwert liefern; die Bedeutung dieses Werts ist bereits 
 \item \textbf{Unsicherheit:} fehlende, widersprüchliche oder methodisch schwache Evidenz.
 \end{itemize}
 
+\section{Die KI zur Ehrlichkeit verpflichten}
+
+Stell dir einen Zeugen vor Gericht vor. Er hat einen Eid geschworen: Er darf nur sagen, was er wirklich gesehen oder in Dokumenten gelesen hat, und wenn er sich nicht sicher ist, muss er das ausdrücklich sagen -- ``Ich weiß es nicht genau'' ist dort eine vollkommen akzeptable Antwort, während eine erfundene, aber selbstbewusst vorgetragene Behauptung den ganzen Prozess zum Einsturz bringen kann. Ein Sprachmodell steht nicht von selbst unter einem solchen Eid: Es ist darauf trainiert, hilfreich und flüssig zu antworten, und kann deshalb bei fehlendem Wissen unbemerkt eine plausibel klingende, aber falsche Aussage erfinden -- das nennt man eine \emph{Halluzination}. Diese Neigung lässt sich mit klaren Regeln jedoch deutlich reduzieren.
+
+\subsection{Eine feste Regel für Fakten und Unsicherheit}
+
+Am zuverlässigsten wirkt eine Regel, die von Anfang an festlegt, wie mit fehlendem Wissen umzugehen ist -- entweder einmalig im Auftrag oder dauerhaft in den benutzerdefinierten Anweisungen aus Kapitel~9.
+
+\begin{lstlisting}
+Verwende ausschließlich Informationen, die du in dieser Recherche
+tatsächlich gefunden hast, oder kennzeichne sie klar als Allgemeinwissen.
+Erfinde keine Zahlen, Namen, Zitate oder Quellenangaben.
+
+Wenn eine Information fehlt, widersprüchlich oder veraltet ist,
+schreibe wörtlich "unsicher" oder "nicht belegt" an dieser Stelle,
+statt eine plausible Vermutung als Tatsache darzustellen.
+
+Kennzeichne jede zentrale Aussage mit [Quelle: ...] oder [Annahme]
+oder [unsicher], damit ich sofort sehe, worauf sie beruht.
+\end{lstlisting}
+
+Ergänzend hilft der Modifier \texttt{+quellen} aus Kapitel~3: Er signalisiert, dass jede zentrale Aussage belegt werden soll, ohne dass du die vollständige Regel jedes Mal neu ausschreiben musst.
+
+\subsection{Ein Beispiel: vorher und nachher}
+
+\begin{tabularx}{\textwidth}{@{}p{.46\textwidth}X@{}}\toprule
+\textbf{Ohne Regel}&\textbf{Mit Regel}\\\midrule
+``Die Software kostet etwa 12 Euro im Monat.''&``[Quelle: Preisseite des Herstellers, abgerufen heute] 11,99 Euro im Monat für den Basistarif.''\\
+``Studien zeigen, dass das funktioniert.''&``[unsicher] Ich habe keine konkrete Studie dazu gefunden. Zwei Erfahrungsberichte deuten in diese Richtung, das ist aber kein wissenschaftlicher Beleg.''\\\bottomrule
+\end{tabularx}
+
+Die rechte Spalte ist manchmal weniger glatt zu lesen als die linke -- genau das ist beabsichtigt. Ein ehrliches ``ich bin mir nicht sicher'' ist mehr wert als eine selbstbewusst klingende Erfindung.
+
+\begin{merke}
+Verlange nicht nur eine Antwort, sondern auch die Quelle jeder wichtigen Aussage. Ein System, das offen ``unsicher'' sagen darf, muss nicht mehr raten -- und wird dadurch insgesamt zuverlässiger.
+\end{merke}
+
+\begin{achtung}
+Eine Anweisung zur Ehrlichkeit ist kein hundertprozentiger Schutz vor Fehlern. Sie senkt das Risiko erheblich, ersetzt aber nicht die eigene Prüfung wichtiger Aussagen an der Originalquelle.
+\end{achtung}
+
 \section{Typische Fallen bei der Quellenarbeit}
 
 Auch eine gut gemeinte Recherche kann schiefgehen. Häufige Fallen sind: ein Blogartikel wird wie eine wissenschaftliche Studie behandelt, obwohl er nur eine Meinung wiedergibt; eine veraltete Quelle wird als aktuell zitiert, weil das Abrufdatum nicht geprüft wurde; oder eine einzelne Zahl wird ohne den ursprünglichen Zusammenhang übernommen und dadurch verzerrt. Die beste Absicherung ist einfach: Öffne die Quelle wirklich, statt der Zusammenfassung blind zu vertrauen -- so wie ein guter Lehrer verlangt, dass du das Originalbuch aufschlägst und nicht nur zitierst, was ein Mitschüler dir erzählt hat.
