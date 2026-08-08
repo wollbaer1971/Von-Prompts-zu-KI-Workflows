@@ -1,29 +1,53 @@
 \chapter{Das persönliche Command-System}
-Die folgenden Befehle bilden eine kleine, wiederverwendbare Arbeitssprache.
-\begin{longtable}{@{}p{.22\textwidth}p{.7\textwidth}@{}}\toprule
+
+Ein persönliches Command-System ist eine kleine, lesbare Arbeitssprache für wiederkehrende Aufgaben. Es soll häufige Qualitätsanforderungen bündeln, ohne die Kommunikation unnötig zu verkomplizieren. Ein gutes Set enthält wenige, klar unterscheidbare Befehle und kombinierbare Modifier.
+
+\section{Grundbefehle und ihr erwartetes Ergebnis}
+
+\begin{longtable}{@{}p{.2\textwidth}p{.72\textwidth}@{}}\toprule
 \textbf{Command}&\textbf{Standardverhalten}\\\midrule\endhead
-\texttt{/analyse}&Fakten, Annahmen, Ursachen, Zusammenhänge und Lösungen trennen.\\
-\texttt{/entscheidung}&Kriterien, Optionen, Risiken und Folgewirkungen bewerten; Empfehlung geben.\\
-\texttt{/vergleich}&Alternativen nach sinnvollen Kriterien vergleichen.\\
-\texttt{/plan}&Ziel in realistische Schritte, Abhängigkeiten und nächste Aktionen zerlegen.\\
-\texttt{/recherche}&Aktuelle Informationen mit belastbaren Quellen untersuchen.\\
-\texttt{/kritik}&Denkfehler, Lücken, Risiken und bessere Alternativen suchen.\\
-\texttt{/code}&Ausführbaren, wartbaren Code entwerfen, testen und erklären.\\
-\texttt{/sysml}&Anforderungen, Struktur, Verhalten, Schnittstellen und Verifikation modellieren.\\
-\texttt{/unterricht}&Lernziele, Einstieg, Erklärung, Übung und Musterlösung erstellen.\\
-\texttt{/dokument}&Material logisch ordnen und als professionelles Dokument ausarbeiten.\\
-\texttt{/todo}&Aufgaben, Anlass, Priorität, Frist und nächsten Schritt extrahieren.\\
-\texttt{/erklaere}&Vom Einfachen zum Komplexen erklären und Begriffe einführen.\\
-\texttt{/lernen}&Praxisorientierten Lernpfad mit Übungen erstellen.\\\bottomrule
+\texttt{/analyse}&Fakten, Annahmen, Symptome, Ursachen und Lösungswege trennen; mit einer begründeten Einschätzung enden.\\
+\texttt{/entscheidung}&Kriterien gewichten, Optionen vergleichen, Risiken und Folgewirkungen bewerten und eine klare Empfehlung geben.\\
+\texttt{/vergleich}&Alternativen nach transparenten Kriterien gegenüberstellen und Eignung je Anwendungsfall nennen.\\
+\texttt{/plan}&Ziel in Arbeitspakete, Abhängigkeiten, Meilensteine und konkrete nächste Schritte zerlegen.\\
+\texttt{/recherche}&Aktuelle Informationen ermitteln, Primärquellen bevorzugen und Unsicherheit ausweisen.\\
+\texttt{/kritik}&Denkfehler, unbelegte Annahmen, Risiken, Lücken und bessere Alternativen suchen.\\
+\texttt{/code}&Architektur klären, ausführbaren und wartbaren Code erstellen sowie relevante Tests durchführen.\\
+\texttt{/sysml}&Anforderungen, Struktur, Verhalten, Schnittstellen, Constraints und Verifikation modellieren.\\
+\texttt{/unterricht}&Lernziele, Einstieg, Erklärung, Aktivierung, Übung und Musterlösung didaktisch verbinden.\\
+\texttt{/dokument}&Material ordnen, Wiederholungen entfernen und ein professionelles Dokument erstellen.\\
+\texttt{/todo}&Aufgabe, Anlass, Priorität, Frist, Verantwortlichkeit und nächsten Schritt extrahieren.\\
+\texttt{/erklaere}&Ein Thema vom anschaulichen Grundmodell bis zu Fachbegriffen und Grenzen aufbauen.\\
+\texttt{/lernen}&Einen Lernpfad mit kurzen Erklärungen, Übungen, Rückmeldung und Transfer gestalten.\\\bottomrule
 \end{longtable}
-\section{Modifier}
+
+\section{Modifier als zweite Ebene}
+
+Modifier verändern Tiefe oder Darstellungsform, ohne einen neuen Grundbefehl zu benötigen.
+
 \begin{tabularx}{\textwidth}{@{}lXlX@{}}\toprule
-\texttt{+kurz}&nur Wesentliches&\texttt{+tief}&mehr Zusammenhänge\\
-\texttt{+quellen}&Aussagen belegen&\texttt{+schritt}&konkrete Abfolge\\
+\texttt{+kurz}&nur Entscheidung und Kerngründe&\texttt{+tief}&Zusammenhänge und Randfälle\\
+\texttt{+quellen}&zentrale Aussagen belegen&\texttt{+schritt}&konkrete Abfolge\\
 \texttt{+praxis}&Umsetzung priorisieren&\texttt{+kritisch}&Gegenargumente suchen\\
-\texttt{+tabelle}&tabellarisch ausgeben&\texttt{+datei}&passendes Artefakt erzeugen\\\bottomrule
+\texttt{+tabelle}&geeignete Teile tabellarisch&\texttt{+datei}&nutzbares Artefakt erzeugen\\\bottomrule
 \end{tabularx}
+
+\section{Prioritäten und Konflikte}
+
+Modifier können einander widersprechen. \texttt{+kurz} und \texttt{+tief} sollten beispielsweise so interpretiert werden, dass die Analyse gründlich, die Darstellung aber komprimiert ist. \texttt{+tabelle} bedeutet nicht, dass jeder Gedanke in eine Tabelle gezwängt wird. Die Tabelle ist für wiederkehrende Felder geeignet; Begründung und Einschränkungen bleiben Fließtext.
+
 \begin{lstlisting}
-/entscheidung +kritisch +tabelle
+/entscheidung +kritisch +tabelle +kurz
 Soll unser Team die Wissensdatenbank selbst bauen oder eine Plattform nutzen?
+Budget: 40.000 Euro im ersten Jahr. Team: zwei Entwickler.
+Entscheidungshorizont: vier Wochen.
 \end{lstlisting}
+
+\section{Commands zuverlässig definieren}
+
+Eine gute Definition enthält Zweck, Mindeststruktur, Qualitätsregeln und Abbruchbedingungen. Ein Beispiel verbessert die Zuverlässigkeit. Nicht sinnvoll sind Dutzende fast identische Befehle, unklare Namen oder Regeln, die nur in einem einzigen Sonderfall gelten.
+
+\begin{praxis}
+Wähle drei Aufgaben, die du mindestens monatlich erledigst. Formuliere für jede einen Command mit höchstens fünf Qualitätsregeln. Teste jeden Command an zwei unterschiedlichen Beispielen und notiere, welche Regel missverstanden wurde.
+\end{praxis}
+

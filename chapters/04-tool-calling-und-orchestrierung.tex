@@ -1,5 +1,54 @@
 \chapter{Tool Calling und Orchestrierung}
-Ein Sprachmodell kann erkennen, dass es für eine Aufgabe aktuelle Daten, Berechnungen, Dateien oder einen externen Dienst benötigt. Beim Tool Calling erzeugt es einen strukturierten Werkzeugaufruf, erhält ein Ergebnis und verarbeitet dieses weiter. Die Orchestrierung koordiniert mehrere solcher Schritte.
+
+Ein Sprachmodell erzeugt zunächst Sprache. Viele reale Aufgaben erfordern jedoch aktuelle Informationen, genaue Berechnungen, Dateizugriff oder Aktionen in anderen Systemen. Tool Calling verbindet das Modell mit solchen Fähigkeiten. Das Modell entscheidet, welches Werkzeug benötigt wird, erzeugt einen strukturierten Aufruf und verarbeitet die zurückgegebenen Daten.
+
 \input{diagrams/03-tool-calling-flow.tex}
+
+\section{Der typische Werkzeugzyklus}
+
+Ein Werkzeugzyklus besteht aus fünf Schritten:
+
+\begin{enumerate}
+\item \textbf{Bedarf erkennen:} Welche Information oder Handlung fehlt?
+\item \textbf{Werkzeug wählen:} Suche, Rechner, Dateiwerkzeug, Browser oder App.
+\item \textbf{Aufruf formulieren:} Parameter wie Suchbegriff, Dateiname oder Zeitraum bestimmen.
+\item \textbf{Ergebnis interpretieren:} Rückgabe auf Relevanz, Fehler und Vollständigkeit prüfen.
+\item \textbf{Weiterarbeiten oder abschließen:} Nächsten Schritt wählen oder Ergebnis ausgeben.
+\end{enumerate}
+
+Ein einzelner Auftrag kann mehrere Zyklen enthalten. Für einen Produktvergleich müssen beispielsweise zuerst aktuelle Daten recherchiert, anschließend Werte normalisiert, Kosten berechnet und schließlich Empfehlungen formuliert werden.
+
+\section{Was Orchestrierung bedeutet}
+
+Orchestrierung ist die Koordination dieser Schritte. Sie verwaltet Reihenfolge, Abhängigkeiten, Zwischenergebnisse und Abbruchbedingungen. Gute Orchestrierung berücksichtigt, dass manche Schritte parallel möglich sind, andere aber ein vorheriges Ergebnis benötigen.
+
+\begin{lstlisting}
+Ziel verstehen
+  -> Quellen recherchieren
+  -> Daten vereinheitlichen
+  -> Berechnung durchführen
+  -> Widersprüche prüfen
+  -> Bericht erzeugen
+  -> Ausgabe visuell kontrollieren
+\end{lstlisting}
+
 \section{Warum Prüfschritte wichtig sind}
-Werkzeuge können scheitern, Daten können unvollständig sein und Modellinterpretationen können falsch sein. Ein robuster Workflow prüft daher Quelle, Aktualität, Vollständigkeit, Rechenergebnis und Ausgabeformat.
+
+Ein technisch erfolgreicher Werkzeugaufruf ist noch kein inhaltlich richtiges Ergebnis. Eine Websuche kann irrelevante Treffer liefern, eine Datei kann veraltet sein, eine Tabelle kann Einheiten vermischen und ein Browser kann eine falsche Schaltfläche auswählen. Deshalb sollte der Workflow mindestens folgende Fragen beantworten:
+
+\begin{itemize}
+\item Stammt das Ergebnis aus der erwarteten Quelle und dem richtigen Zeitraum?
+\item Sind Einheiten, Währungen und Bezugsgrößen konsistent?
+\item Fehlen Daten, oder wurden leere Werte stillschweigend ersetzt?
+\item Trägt die Quelle wirklich die daraus abgeleitete Aussage?
+\item Entspricht das Endformat dem Arbeitsauftrag?
+\end{itemize}
+
+\section{Fehlerbehandlung und Abbruch}
+
+Robuste Workflows definieren, was bei einem Fehler geschieht. Ein fehlgeschlagener Aufruf kann einmal mit korrigierten Parametern wiederholt werden. Danach sollte entweder ein alternatives Werkzeug verwendet oder die Unsicherheit an den Nutzer eskaliert werden. Endlose Wiederholungen sind kein Zeichen von Autonomie, sondern von fehlenden Abbruchkriterien.
+
+\begin{praxis}
+Formuliere einen Auftrag, der Recherche und Berechnung kombiniert. Lass das System vor Beginn einen kurzen Werkzeugplan nennen. Prüfe nach Abschluss, ob jeder Werkzeugaufruf einen erkennbaren Beitrag zum Ergebnis geleistet hat.
+\end{praxis}
+

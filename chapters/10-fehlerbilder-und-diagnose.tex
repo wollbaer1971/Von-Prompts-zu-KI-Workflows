@@ -1,11 +1,40 @@
 \chapter{Fehlerbilder und Diagnose}
-\begin{longtable}{@{}p{.27\textwidth}p{.31\textwidth}p{.34\textwidth}@{}}\toprule
-\textbf{Symptom}&\textbf{Wahrscheinliche Ursache}&\textbf{Verbesserung}\\\midrule\endhead
-Command wird ignoriert&Bedeutung nicht im Kontext&Definition hinterlegen oder ausschreiben\\
-Antwort ist allgemein&Ziel und Zielgruppe fehlen&Ergebnis und Erfolgskriterien nennen\\
-Falsche Aktualität&Kein Zugriff auf aktuelle Quelle&Websuche und Stichtag verlangen\\
-Quelle stützt Aussage nicht&Zusammenfassung zu frei&Primärquelle öffnen und Stelle prüfen\\
-Workflow dreht Schleifen&Abbruchkriterium fehlt&Maximale Versuche und Eskalation definieren\\
-Aktion wäre riskant&Zu breite Berechtigung&Read--Draft--Act und Bestätigung verwenden\\
-Datei sieht schlecht aus&Nur Inhalt, keine visuelle QA&Rendern, Seiten prüfen, iterieren\\\bottomrule
+
+Fehler in KI-Workflows entstehen selten nur an einer Stelle. Ursache kann ein unklarer Auftrag, ungeeigneter Kontext, eine schwache Quelle, ein fehlgeschlagenes Werkzeug oder eine unzureichende Prüfung sein. Statt denselben Prompt immer länger zu machen, sollte die Diagnose die fehlerhafte Ebene bestimmen.
+
+\begin{longtable}{@{}p{.25\textwidth}p{.31\textwidth}p{.36\textwidth}@{}}\toprule
+\textbf{Symptom}&\textbf{Wahrscheinliche Ursache}&\textbf{Gezielte Verbesserung}\\\midrule\endhead
+Command wird ignoriert&Bedeutung fehlt im Kontext&Definition hinterlegen, Beispiel ergänzen oder Anweisung ausschreiben.\\
+Antwort ist allgemein&Ziel, Zielgruppe oder Entscheidung fehlen&Gewünschtes Artefakt und Nutzungssituation nennen.\\
+Antwort ist lang, aber unbrauchbar&Keine Prioritäten oder Prüfkriterien&Maximale Länge, Kernaussage und Erfolgsmaßstab festlegen.\\
+Falsche Aktualität&Keine aktuelle Quelle oder kein Stichtag&Websuche, Zeitraum und Primärquellen verlangen.\\
+Quelle stützt Aussage nicht&Zusammenfassung ist zu frei&Originalquelle öffnen und konkrete Fundstelle prüfen.\\
+Widersprüchliche Zahlen&Einheiten oder Bezugsgrößen vermischt&Rechenweg, Einheiten und Normalisierung offenlegen.\\
+Workflow dreht Schleifen&Abbruchkriterium fehlt&Maximale Versuche und Eskalationspunkt definieren.\\
+Aktion wäre riskant&Rechte oder Zielbereich zu breit&Read--Draft--Act trennen und Bestätigung verwenden.\\
+Datei sieht schlecht aus&Nur Inhalt, keine visuelle Prüfung&Rendern, repräsentative Seiten prüfen und iterieren.\\
+Ergebnis variiert stark&Definition zu abstrakt&Positives Beispiel, Gegenbeispiel und feste Ausgabestruktur ergänzen.\\\bottomrule
 \end{longtable}
+
+\section{Eine Diagnose in fünf Fragen}
+
+\begin{enumerate}
+\item \textbf{Auftrag:} War das gewünschte Ergebnis eindeutig?
+\item \textbf{Kontext:} Waren Zielgruppe, Daten und Grenzen vorhanden?
+\item \textbf{Werkzeug:} Wurde die richtige Fähigkeit mit passenden Parametern verwendet?
+\item \textbf{Evidenz:} Sind Quellen, Berechnungen und Ableitungen tragfähig?
+\item \textbf{Ausgabe:} Wurde das Ergebnis inhaltlich und visuell geprüft?
+\end{enumerate}
+
+\section{Die kleinste wirksame Korrektur}
+
+Ändere bei einem fehlgeschlagenen Versuch möglichst nur eine Variable. Ergänze beispielsweise zuerst die Zielgruppe, dann separat ein Format. Werden gleichzeitig zehn Regeln geändert, bleibt unklar, welche davon die Verbesserung verursacht hat. Dieses Vorgehen macht Prompt- und Workflow-Entwicklung zu einem nachvollziehbaren Experiment.
+
+\section{Wann man nicht weiter automatisieren sollte}
+
+Ein Workflow ist ein schlechter Automatisierungskandidat, wenn der Zweck bei jedem Durchlauf wechselt, zentrale Daten nicht zuverlässig verfügbar sind oder eine kleine Fehlentscheidung große Schäden verursachen kann. In solchen Fällen ist KI als Analyse- oder Entwurfswerkzeug oft wertvoller als als autonomer Ausführer.
+
+\begin{praxis}
+Nimm ein enttäuschendes Ergebnis aus einem früheren Chat. Ordne den Fehler einer der fünf Diagnosefragen zu und ändere nur diese Ebene. Dokumentiere, ob die zweite Ausgabe messbar besser geworden ist.
+\end{praxis}
+

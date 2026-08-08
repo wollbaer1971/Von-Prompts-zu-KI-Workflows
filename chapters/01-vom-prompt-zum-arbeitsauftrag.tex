@@ -1,7 +1,55 @@
 \chapter{Vom Prompt zum Arbeitsauftrag}
-Ein klassischer Prompt verlangt eine Antwort. Ein moderner Arbeitsauftrag beschreibt dagegen ein Ergebnis, Randbedingungen und Qualitätskriterien. Das System kann daraus Teilschritte ableiten, Werkzeuge wählen, Zwischenergebnisse prüfen und ein nutzbares Artefakt erzeugen.
+
+Ein klassischer Prompt ist häufig wie eine einzelne Frage formuliert: Man gibt Text ein und erwartet Text zurück. Ein moderner KI-Arbeitsauftrag geht weiter. Er beschreibt nicht nur, \emph{was gesagt}, sondern welches Ergebnis hergestellt werden soll. Dieses Ergebnis kann eine Entscheidungsvorlage, eine Recherche, eine Tabelle, ein Programm, ein Unterrichtsentwurf oder ein vollständiges Dokument sein.
+
+Der Unterschied liegt weniger in der Länge des Prompts als in seiner Funktion. Ein Prompt kann einen einzelnen Denkschritt auslösen. Ein Arbeitsauftrag definiert dagegen einen kleinen Prozess: Ausgangslage verstehen, fehlende Informationen beschaffen, Zwischenergebnisse prüfen und das Ergebnis in einer brauchbaren Form bereitstellen.
+
 \input{diagrams/01-auftrag-orchestrierung.tex}
-\begin{merke}Ein guter Auftrag nennt Ziel, Kontext, Grenzen und Erfolgskriterien. Er muss nicht jeden Mausklick vorgeben.\end{merke}
-\section{Vier Ebenen eines guten Auftrags}
-\begin{enumerate}\item \textbf{Ziel:} Was soll am Ende vorliegen?\item \textbf{Kontext:} Für wen und wofür?\item \textbf{Grenzen:} Budget, Zeit, Quellen, Format und Berechtigungen.\item \textbf{Prüfung:} Woran erkennt man ein gutes Ergebnis?\end{enumerate}
-\begin{praxis}Vergleiche: ``Erkläre RAG'' mit ``Erstelle für einen Softwareentwickler einen 20-minütigen Lernpfad zu RAG, mit Mini-Beispiel, typischen Fehlern und Selbsttest.''\end{praxis}
+
+\begin{merke}
+Ein guter Arbeitsauftrag nennt Ziel, Kontext, Grenzen und Erfolgskriterien. Er beschreibt die gewünschte Wirkung, ohne jeden internen Verarbeitungsschritt vorzuschreiben.
+\end{merke}
+
+\section{Vier Ebenen eines guten Arbeitsauftrags}
+
+\subsection{Das Ergebnis eindeutig benennen}
+Statt ``Erkläre Wissensmanagement'' ist ``Erstelle eine zweiseitige Entscheidungsvorlage für die Einführung einer Wissensdatenbank'' wesentlich handlungsnäher. Das gewünschte Artefakt gibt dem System eine Zielrichtung. Hilfreiche Ergebnisformen sind beispielsweise Bericht, Checkliste, Vergleichsmatrix, Lernpfad, Präsentation, Quellensammlung oder ausführbarer Code.
+
+\subsection{Den Nutzungskontext liefern}
+Dasselbe Thema muss für eine Geschäftsführung, eine Fachabteilung und eine Berufsschulklasse unterschiedlich aufbereitet werden. Zum Kontext gehören Zielgruppe, Vorwissen, Anlass und die Entscheidung oder Handlung, die das Ergebnis unterstützen soll. Kontext verhindert, dass eine fachlich richtige Antwort praktisch unbrauchbar bleibt.
+
+\subsection{Grenzen und Freiräume festlegen}
+Grenzen können Budget, Zeit, Rechtsraum, Quellenarten, technische Plattform, Ton, Länge und Berechtigungen betreffen. Ebenso wichtig ist die Frage, wo das System selbst entscheiden darf. Zu enge Vorgaben verhindern sinnvolle Lösungen; zu offene Aufträge führen zu Annahmen, die möglicherweise nicht zur Situation passen.
+
+\subsection{Qualität prüfbar machen}
+``Mach es gut'' ist kein prüfbares Kriterium. Besser sind konkrete Anforderungen: mindestens drei belastbare Quellen, klare Trennung von Fakten und Annahmen, vollständige Kostenrechnung, lauffähiger Test oder eine Zusammenfassung für Nichtfachleute. Je wichtiger die Aufgabe, desto expliziter sollten die Prüfkriterien sein.
+
+\section{Eine praktische Auftragsformel}
+
+Eine robuste Kurzform lautet:
+
+\begin{lstlisting}
+Erstelle [Ergebnis] für [Zielgruppe und Zweck].
+Nutze [Daten und Quellen]. Beachte [Grenzen].
+Das Ergebnis ist gut, wenn [Prüfkriterien].
+Liefere es als [Format].
+\end{lstlisting}
+
+Beispiel:
+
+\begin{lstlisting}
+Erstelle für unser fünfköpfiges Entwicklungsteam eine Entscheidungsvorlage
+zur Einführung eines internen RAG-Systems. Vergleiche Eigenbau und Plattform.
+Berücksichtige Datenschutz, Betrieb, Kosten über drei Jahre und Abhängigkeiten.
+Kennzeichne Annahmen und belege aktuelle Produktaussagen mit Primärquellen.
+Liefere eine Vergleichstabelle, eine Empfehlung und fünf nächste Schritte.
+\end{lstlisting}
+
+\section{Wann Rückfragen sinnvoll sind}
+
+Rückfragen sind dann wichtig, wenn eine fehlende Angabe die Richtung wesentlich verändert, etwa Budget, Rechtsraum oder Zielgruppe. Fehlt nur eine nebensächliche Information, kann das System eine vernünftige Annahme treffen und sie offen nennen. Gute Zusammenarbeit bedeutet daher nicht, jede Unklarheit vorab zu beseitigen, sondern folgenreiche Unsicherheit von unkritischen Details zu unterscheiden.
+
+\begin{praxis}
+Vergleiche drei Varianten: ``Erkläre RAG'', dann ``Erkläre RAG für einen Softwareentwickler mit Mini-Beispiel'' und schließlich einen vollständigen Arbeitsauftrag mit Zeitrahmen, Selbsttest und Erfolgskriterien. Markiere, welche zusätzliche Angabe die größte Qualitätsverbesserung bewirkt hat.
+\end{praxis}
+

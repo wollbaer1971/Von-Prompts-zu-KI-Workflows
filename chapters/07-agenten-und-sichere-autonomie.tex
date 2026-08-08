@@ -1,5 +1,44 @@
 \chapter{Agenten und sichere Autonomie}
-Ein Agent verfolgt ein Ziel über mehrere Schritte, beobachtet Ergebnisse und passt sein Vorgehen an. Autonomie sollte abgestuft sein.
+
+Ein Agent beantwortet nicht nur eine einzelne Frage. Er verfolgt ein Ziel über mehrere Schritte, beobachtet Ergebnisse und passt sein weiteres Vorgehen an. Der Begriff beschreibt damit eine Arbeitsweise, keine Garantie für vollständige Selbstständigkeit.
+
 \input{diagrams/05-read-draft-act.tex}
-\begin{itemize}\item \textbf{Read:} Informationen abrufen, nichts verändern.\item \textbf{Draft:} Entwurf oder Änderung vorbereiten, Nutzer entscheidet.\item \textbf{Act:} Externe Wirkung auslösen; Ziel, Umfang und Bestätigung müssen klar sein.\end{itemize}
-\begin{achtung}Zahlungen, Löschungen, Veröffentlichungen, Nachrichten und Rechteänderungen sind folgenreiche Aktionen. Vorher exakte Ziele und Vorschau prüfen.\end{achtung}
+
+\section{Der Agentenzyklus}
+
+Ein typischer Zyklus besteht aus Ziel verstehen, planen, handeln, beobachten und neu bewerten. Nach jedem Werkzeugergebnis entscheidet der Agent, ob das Ziel erreicht ist, ein weiterer Schritt nötig wird oder eine Rückfrage gestellt werden muss. Gute Agentenarbeit benötigt deshalb sowohl Handlungsmöglichkeiten als auch klare Abbruchkriterien.
+
+\section{Read, Draft und Act}
+
+\begin{description}
+\item[Read] Informationen abrufen und analysieren, ohne externe Daten zu verändern. Beispiele sind das Lesen eines Kalenders oder das Auswerten eines Dokuments.
+\item[Draft] Eine Änderung vollständig vorbereiten, aber noch nicht auslösen. Dazu gehören E-Mail-Entwürfe, vorgeschlagene Kalenderänderungen oder ein vorbereiteter Pull Request.
+\item[Act] Eine externe Wirkung auslösen, etwa eine Nachricht senden, einen Termin verschieben, Daten veröffentlichen oder eine Bestellung ausführen.
+\end{description}
+
+Diese Stufen helfen, Berechtigungen an die tatsächliche Aufgabe anzupassen. Viele Arbeitsabläufe profitieren bereits von Read und Draft; Act ist nur dort nötig, wo die Ausführung ausdrücklich gewünscht ist.
+
+\section{Risikofaktoren bewerten}
+
+Nicht jede Aktion ist gleich kritisch. Relevant sind Reichweite, Umkehrbarkeit, finanzielle Wirkung, Datenschutz und betroffene Personen. Eine private Entwurfsdatei ist leichter korrigierbar als eine veröffentlichte Mitteilung. Eine Terminverschiebung für eine Person hat geringere Reichweite als eine Änderung für hundert Teilnehmende.
+
+\section{Leitplanken für sichere Agenten}
+
+\begin{itemize}
+\item nur die minimal erforderlichen Konten und Rechte freigeben,
+\item Ziel und zulässigen Umfang ausdrücklich beschreiben,
+\item irreversible oder öffentliche Aktionen vorab bestätigen,
+\item Vorschau, Zielobjekt und Empfängerliste kontrollieren,
+\item maximale Versuche, Kosten oder Laufzeit festlegen,
+\item ausgeführte Schritte nachvollziehbar protokollieren,
+\item bei Widerspruch oder Unsicherheit an den Nutzer eskalieren.
+\end{itemize}
+
+\begin{achtung}
+Zahlungen, Löschungen, Veröffentlichungen, Nachrichten und Rechteänderungen sind folgenreiche Aktionen. Vor der Ausführung müssen Ziel, Umfang und sichtbare Vorschau geprüft werden.
+\end{achtung}
+
+\begin{praxis}
+Wähle einen realen Ablauf, etwa eine Besprechung zu verschieben. Beschreibe getrennt, was in Read, Draft und Act geschieht. Lege fest, welche Informationen vor dem Übergang zu Act noch bestätigt werden müssen.
+\end{praxis}
+

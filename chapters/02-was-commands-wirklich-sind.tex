@@ -1,4 +1,46 @@
 \chapter{Was Commands wirklich sind}
-Das Wort \emph{Command} wird für zwei Dinge benutzt. Erstens gibt es produktseitige Schnellschalter, etwa den dokumentierten Start von Deep Research über \texttt{/Deepresearch}. Zweitens gibt es frei definierte Kurzbefehle wie \texttt{/analyse}. Bei diesen ist der Schrägstrich keine Magie: Er funktioniert, weil seine Bedeutung zuvor als Anweisung vereinbart wurde.
+
+Das Wort \emph{Command} wird im Umfeld von ChatGPT für verschiedene Mechanismen verwendet. Diese Unterscheidung ist grundlegend, weil sonst der Eindruck entsteht, jeder Ausdruck mit Schrägstrich sei eine eingebaute Produktfunktion.
+
 \input{diagrams/02-command-typen.tex}
-\begin{achtung}Verfügbare Menüpunkte, Namen und Limits können sich nach Tarif, Plattform, Region und Rollout unterscheiden. Die aktuelle Oberfläche ist maßgeblich.\end{achtung}
+
+\section{Produktseitige Commands}
+
+Produktseitige Commands sind Bestandteile der Oberfläche. Sie wählen ein Werkzeug oder einen Arbeitsmodus aus. Ein dokumentiertes Beispiel ist \texttt{/Deepresearch}. Solche Einträge können sich mit Plattform, Tarif, Region und Produktversion ändern. Entscheidend ist nicht der genaue Name, sondern dass die Oberfläche den Befehl erkennt und eine echte Fähigkeit startet.
+
+Ein produktseitiger Command kann beispielsweise eine Rechercheumgebung aktivieren, eine Suche erzwingen oder ein bestimmtes Werkzeug auswählen. Das Modell erhält dadurch nicht nur eine sprachliche Anweisung, sondern einen technisch anderen Ausführungskontext.
+
+\section{Selbst definierte Kurzbefehle}
+
+Ausdrücke wie \texttt{/analyse}, \texttt{/rewrite} oder \texttt{/unterricht} sind normalerweise keine eingebauten Funktionen. Der Schrägstrich dient lediglich als gut sichtbares Präfix. Die eigentliche Wirkung entsteht durch eine vorher hinterlegte Definition, zum Beispiel in benutzerdefinierten Anweisungen, Projektregeln, einem GPT oder am Anfang eines Chats.
+
+\begin{lstlisting}
+Wenn ich /kritik schreibe, prüfe das folgende Material auf:
+unbelegte Annahmen, logische Lücken, Risiken, Gegenargumente
+und realistische Verbesserungen. Stimme nicht aus Höflichkeit zu.
+\end{lstlisting}
+
+Ohne diese Definition ist \texttt{/kritik} nur Text. Das Modell kann seine Bedeutung möglicherweise erraten, doch das Ergebnis ist weniger zuverlässig und nicht standardisiert.
+
+\section{Warum eigene Commands trotzdem nützlich sind}
+
+Eigene Commands komprimieren wiederkehrende Qualitätsanforderungen. Sie verhindern, dass man bei jeder Aufgabe dieselbe Struktur neu formuliert. Außerdem machen sie Arbeitsweisen teamfähig: Mehrere Personen können dieselben Begriffe für Analyse, Entscheidung oder Dokumentation verwenden.
+
+Der Nutzen entsteht vor allem bei Aufgaben, die häufig vorkommen und eine stabile Struktur besitzen. Für seltene oder sehr spezielle Aufträge ist eine direkte Beschreibung meist besser als ein weiterer Command.
+
+\section{Drei häufige Missverständnisse}
+
+\begin{enumerate}
+\item \textbf{Der Schrägstrich verleiht keine besondere Modellfähigkeit.} Er macht eine Konvention erkennbar.
+\item \textbf{Ein Command ersetzt keinen Kontext.} Auch \texttt{/entscheidung} benötigt Optionen, Ziel und Randbedingungen.
+\item \textbf{Commands sind keine Garantie.} Die Ausgabe muss weiterhin geprüft werden, besonders bei aktuellen oder folgenreichen Themen.
+\end{enumerate}
+
+\begin{achtung}
+Verfügbare Menüpunkte, Namen und Nutzungslimits können sich nach Tarif, Plattform, Region und Rollout unterscheiden. Prüfe produktseitige Aussagen in der aktuellen Oberfläche oder der offiziellen Dokumentation.
+\end{achtung}
+
+\begin{praxis}
+Öffne einen neuen Chat und gib einen selbst erfundenen Befehl ohne Definition ein. Wiederhole den Versuch anschließend mit einer klaren Definition und einem Beispiel. Vergleiche Struktur, Zuverlässigkeit und Rückfragen.
+\end{praxis}
+

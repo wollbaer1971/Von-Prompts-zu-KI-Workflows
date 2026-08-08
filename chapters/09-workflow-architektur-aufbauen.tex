@@ -1,14 +1,54 @@
 \chapter{Eine persönliche Workflow-Architektur aufbauen}
-Beginne klein: globale Konventionen für häufige Arbeit, projektspezifische Regeln für einen Kontext und spezialisierte Assistenten nur dort, wo eigenes Wissen oder Werkzeuge notwendig sind.
+
+Eine gute persönliche Architektur wächst aus realen Wiederholungen. Sie beginnt nicht mit möglichst vielen Befehlen, sondern mit wenigen Arbeitsweisen, die regelmäßig Zeit kosten oder Qualitätsprobleme verursachen. Jede Ebene soll eine klar abgegrenzte Aufgabe erfüllen.
+
 \input{diagrams/06-workflow-architektur.tex}
+
+\section{Ebene 1: Globale Arbeitspräferenzen}
+
+Globale Anweisungen enthalten Regeln, die fast immer gelten: gewünschte Sprache, Umgang mit Unsicherheit, bevorzugte Quellen, Grad der Kürze und Sicherheitsregeln. Auch ein kleines Command-Set kann hier liegen. Domänenspezifische Details gehören nicht hinein, weil sie sonst unpassend auf andere Chats wirken.
+
+\section{Ebene 2: Projekte und Kontext}
+
+Ein Projekt bündelt zusammengehörige Chats, Dateien und Regeln. Für ein Unterrichtsprojekt können Zielgruppe, Schulform und didaktische Standards hinterlegt werden; ein Softwareprojekt enthält Architektur, Programmiersprache und Testkonventionen. Projektregeln dürfen globale Regeln präzisieren, sollten ihre Abweichungen aber bewusst machen.
+
+\section{Ebene 3: Spezialisierte Assistenten und Skills}
+
+Ein eigener Skill oder GPT lohnt sich, wenn eine Aufgabe ein stabiles Verfahren, eigenes Referenzmaterial oder ausgewählte Werkzeuge benötigt. Beispiele sind Angebotsprüfung, Sitzungsbriefings oder technische Dokumentation. Ein Spezialassistent sollte einen engen Zweck besitzen; ein allzuständiger Assistent wird schnell schwer wartbar.
+
+\section{Ebene 4: Apps und Aktionen}
+
+Apps werden erst dann verbunden, wenn ihr Nutzen klar ist. Beginne mit lesendem Zugriff und erweitere Berechtigungen nur für konkrete Arbeitsabläufe. Dokumentiere, welche Datenquelle wofür genutzt wird und an welcher Stelle eine externe Aktion bestätigt werden muss.
+
 \section{Vorlage für benutzerdefinierte Anweisungen}
+
 \begin{lstlisting}
 Wenn meine Nachricht mit /analyse, /entscheidung, /vergleich, /plan,
 /recherche, /kritik, /code, /unterricht, /dokument, /todo, /erklaere
 oder /lernen beginnt, behandle das Wort als vereinbarte Kurzform für den
 entsprechenden Arbeitsmodus. Modifier: +kurz, +tief, +quellen, +schritt,
-+praxis, +kritisch, +tabelle, +datei. Trenne Fakten, Annahmen und
-Unsicherheit. Frage nur nach, wenn eine fehlende Angabe das Ergebnis
-wesentlich verändert. Vor externen oder schwer rückgängig zu machenden
-Aktionen zeige Ziel und Wirkung und hole eine Bestätigung ein.
++praxis, +kritisch, +tabelle, +datei.
+
+Trenne Fakten, Annahmen und Unsicherheit. Frage nur nach, wenn eine fehlende
+Angabe das Ergebnis wesentlich verändert. Vor externen oder schwer rückgängig
+zu machenden Aktionen zeige Ziel und Wirkung und hole eine Bestätigung ein.
 \end{lstlisting}
+
+\section{Einführungsplan in fünf Schritten}
+
+\begin{enumerate}
+\item Zwei oder drei häufige Aufgaben auswählen und ihren heutigen Ablauf notieren.
+\item Wiederkehrende Qualitätsregeln in Commands oder Projektanweisungen übersetzen.
+\item Mit realen Beispielen testen und Fehlverhalten protokollieren.
+\item Erst danach geeignete Apps oder Werkzeuge anbinden.
+\item Monatlich aufräumen: ungenutzte Regeln entfernen, ähnliche Regeln zusammenführen und Beispiele aktualisieren.
+\end{enumerate}
+
+\begin{merke}
+Die beste Workflow-Architektur ist nicht die umfangreichste, sondern die kleinste Struktur, die wiederholt verlässliche Ergebnisse erzeugt.
+\end{merke}
+
+\begin{praxis}
+Zeichne deine eigene Architektur mit vier Ebenen. Ordne jeden vorhandenen Command, jede Projektregel und jede App genau einer Ebene zu. Elemente ohne klaren Platz sind Kandidaten zum Vereinfachen oder Entfernen.
+\end{praxis}
+

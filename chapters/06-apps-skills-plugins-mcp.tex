@@ -1,4 +1,40 @@
 \chapter{Apps, Skills, Plugins und MCP}
-Apps verbinden ChatGPT mit externen Informationen oder Aktionen. Skills beschreiben wiederverwendbare Arbeitsweisen. Plugins können mehrere Fähigkeiten bündeln. MCP ist ein offenes Protokoll, über das ein KI-System Werkzeuge und Ressourcen eines Servers entdecken und aufrufen kann.
+
+Moderne KI-Systeme bestehen nicht nur aus einem Modell. Sie verbinden Verhaltensregeln, Datenquellen, Werkzeuge und Benutzungsoberflächen. Die Begriffe Apps, Skills, Plugins und MCP beschreiben unterschiedliche Teile dieser Architektur.
+
 \input{diagrams/04-apps-skills-mcp.tex}
-\begin{merke}Skill = Wie wird gearbeitet? App = Mit welchem Dienst? MCP = Wie werden Werkzeuge standardisiert angeboten?\end{merke}
+
+\section{Apps: Zugriff auf externe Systeme}
+
+Apps verbinden eine KI-Anwendung mit Diensten wie Kalendern, Dokumentablagen, Projektmanagement oder Kommunikation. Abhängig von der jeweiligen App können sie Inhalte suchen, Kontext bereitstellen, Daten vorab synchronisieren oder nach Bestätigung Aktionen ausführen. Die vorhandenen Rechte des verbundenen Kontos und die Einstellungen des Arbeitsbereichs begrenzen den Zugriff.
+
+Der praktische Wert liegt darin, dass Informationen nicht manuell kopiert werden müssen. Gleichzeitig entstehen neue Risiken: sensible Daten können in den Arbeitskontext gelangen, Suchergebnisse können unvollständig sein und Schreibaktionen können externe Wirkung haben.
+
+\section{Skills: wiederverwendbare Arbeitsverfahren}
+
+Ein Skill legt fest, \emph{wie} eine bestimmte Aufgabe bearbeitet werden soll. Er kann Anweisungen, Beispiele, Vorlagen, Prüfschritte und Hilfsprogramme enthalten. Während ein Command oft nur eine kurze Benutzerschnittstelle ist, beschreibt ein Skill den ausführlichen Ablauf dahinter.
+
+Beispiel: Ein Skill für Besprechungsvorbereitung könnte den Kalendereintrag lesen, verknüpfte Dokumente suchen, offene Entscheidungen extrahieren und daraus eine standardisierte Vorbereitung erzeugen.
+
+\section{Plugins: gebündelte Fähigkeiten}
+
+Ein Plugin ist ein Paket, das mehrere zusammengehörige Komponenten bereitstellen kann, etwa Skills, Apps oder Vorlagen. Dadurch lässt sich eine gesamte Arbeitsdomäne gemeinsam installieren und aktualisieren. Der Begriff bezeichnet also eher die Verpackung als einen einzelnen Arbeitsschritt.
+
+\section{MCP: gemeinsame Sprache für Werkzeuge}
+
+Das Model Context Protocol (MCP) standardisiert, wie ein KI-Client Werkzeuge und Ressourcen eines Servers entdecken und verwenden kann. Ein MCP-Server kann beispielsweise eine Datenbankabfrage, eine Dokumentensuche oder eine Geschäftsfunktion anbieten. Der Client erhält Beschreibungen und strukturierte Eingabeparameter und kann passende Aufrufe erzeugen.
+
+MCP löst nicht automatisch Fragen der Qualität oder Berechtigung. Es schafft eine technische Schnittstelle; Authentifizierung, Rechte, Protokollierung und sichere Werkzeugdefinition bleiben Aufgaben der beteiligten Systeme.
+
+\begin{merke}
+Skill = Arbeitsweise. App = verbundener Dienst. Plugin = Paket aus Fähigkeiten. MCP = standardisierte Verbindung zu Werkzeugen und Ressourcen.
+\end{merke}
+
+\section{Ein vollständiges Beispiel}
+
+Beim Auftrag ``Bereite mein nächstes Projektgespräch vor'' könnte ein Skill die benötigten Schritte festlegen. Eine Kalender-App liefert Termin und Teilnehmer, eine Dokument-App liefert das letzte Protokoll, und MCP kann die technische Schnittstelle zu einem internen Projektsystem bilden. Die Orchestrierung verbindet alles zu einem Briefing.
+
+\begin{praxis}
+Nimm einen eigenen Workflow und ordne jedes Element einer Kategorie zu: Benutzerziel, Skill-Regel, App-Zugriff, MCP-Werkzeug, Prüfschritt und externe Aktion. Markiere, an welchen Stellen Berechtigungen notwendig sind.
+\end{praxis}
+

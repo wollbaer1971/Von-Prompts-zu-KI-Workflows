@@ -1,22 +1,76 @@
 \chapter{Praxislabor: zehn Experimente}
-Führe jedes Experiment in einem neuen Chat aus und notiere: Auftrag, verwendete Werkzeuge, Rückfragen, Ergebnis, Fehler und Verbesserung.
-\section{1. Ein Prompt, drei Qualitätsstufen}
-Bitte zuerst nur um eine Erklärung. Füge dann Zielgruppe und Format hinzu. Formuliere schließlich Erfolgskriterien. Vergleiche die Ergebnisse.
-\section{2. Eigener Command}
-Definiere \texttt{/brief}: Ziel, Ausgangslage, drei Kernaussagen, Risiken, nächste Schritte. Teste ihn an zwei Themen und verbessere die Definition.
-\section{3. Modifier kombinieren}
-Teste \texttt{/vergleich +kurz}, danach \texttt{+tief +kritisch +tabelle}. Beobachte, welche Modifier miteinander konkurrieren.
-\section{4. Aktualität erzwingen}
-Stelle eine zeitabhängige Frage. Verlange Datum, Quellen und Kennzeichnung unsicherer Aussagen. Öffne mindestens zwei Quellen.
-\section{5. Deep Research}
-Wähle eine Frage mit mehreren Perspektiven. Begrenze Zeitraum und Quellentypen. Prüfe den Forschungsplan vor dem Start.
-\section{6. Datei als Datenquelle}
-Lade ein eigenes, unkritisches Dokument hoch. Lass Aussagen extrahieren und fordere Seiten- oder Abschnittsnachweise. Suche eine erfundene Behauptung.
-\section{7. Workflow mit Zwischenschritt}
-Lass aus Notizen erst eine Gliederung erstellen. Genehmige sie, bevor der Text entsteht. Vergleiche das Resultat mit einer Ein-Schritt-Anfrage.
-\section{8. Read--Draft--Act}
-Formuliere eine Aufgabe dreimal: nur lesen, Entwurf erstellen, Aktion vorbereiten. Markiere, an welcher Stelle eine Bestätigung erforderlich ist.
-\section{9. Fehler provozieren}
-Gib absichtlich widersprüchliche Randbedingungen. Prüfe, ob Rückfragen kommen oder Annahmen transparent gemacht werden.
-\section{10. Eigener wiederverwendbarer Workflow}
-Wähle eine monatliche Aufgabe. Definiere Eingangsdaten, Schritte, Qualitätsprüfung, Freigabepunkte und Ausgabe. Teste mit einem realen Beispiel.
+
+Dieses Kapitel überführt die Konzepte in beobachtbare Versuche. Führe jedes Experiment möglichst in einem neuen Chat aus. Dokumentiere Auftrag, Rückfragen, verwendete Werkzeuge, Ergebnis, erkennbare Fehler und eine verbesserte zweite Fassung. Entscheidend ist nicht, dass der erste Versuch perfekt gelingt, sondern dass du Ursache und Wirkung einzelner Formulierungen erkennst.
+
+\section{Experiment 1: Ein Prompt in drei Qualitätsstufen}
+
+\textbf{Ziel:} Den Einfluss von Kontext und Erfolgskriterien erkennen.
+
+\textbf{Durchführung:} Bitte zunächst nur um eine Erklärung eines vertrauten Themas. Ergänze in der zweiten Runde Zielgruppe und Ausgabeformat. Formuliere in der dritten Runde messbare Qualitätskriterien und einen Anwendungszweck.
+
+\textbf{Auswertung:} Welche Ergänzung verändert Inhalt, Tiefe und Nutzbarkeit am stärksten? Entstehen weniger unpassende Annahmen?
+
+\section{Experiment 2: Einen eigenen Command definieren}
+
+\textbf{Ziel:} Erkennen, dass die Definition und nicht der Schrägstrich die Wirkung erzeugt.
+
+Definiere \texttt{/brief} als Ziel, Ausgangslage, drei Kernaussagen, Risiken und nächste Schritte. Teste den Command an einem technischen und einem organisatorischen Thema. Ergänze anschließend eine Regel, die in beiden Fällen gefehlt hat.
+
+\section{Experiment 3: Modifier kombinieren}
+
+\textbf{Ziel:} Konflikte zwischen Kürze, Tiefe und Ausgabeformat beobachten.
+
+Teste denselben Vergleich mit \texttt{+kurz}, danach mit \texttt{+tief +kritisch +tabelle} und schließlich mit \texttt{+kurz +tief}. Prüfe, wie das System den letzten scheinbaren Widerspruch auflöst. Formuliere eine Prioritätsregel, falls die Ausgabe nicht deinen Erwartungen entspricht.
+
+\section{Experiment 4: Aktualität erzwingen}
+
+\textbf{Ziel:} Modellwissen von recherchierten Tatsachen unterscheiden.
+
+Stelle eine zeitabhängige Frage, etwa zu Preisen, Softwareversionen oder Vorschriften. Verlange Stichtag, direkte Quellen und Kennzeichnung unsicherer Aussagen. Öffne mindestens zwei Quellen und kontrolliere Veröffentlichungsdatum sowie konkrete Fundstelle.
+
+\section{Experiment 5: Deep Research steuern}
+
+\textbf{Ziel:} Den Wert eines überprüfbaren Forschungsplans erfahren.
+
+Wähle eine Frage mit mehreren Perspektiven. Lege Zeitraum, bevorzugte Quellenarten und Ausschlusskriterien fest. Prüfe den vorgeschlagenen Forschungsplan: Deckt er die Entscheidungsfrage ab? Fehlt eine Gegenposition? Ist der Umfang realistisch? Ändere den Plan vor dem Start.
+
+\section{Experiment 6: Eine Datei als Datenquelle}
+
+\textbf{Ziel:} Nachweisgebundene Extraktion üben.
+
+Lade ein eigenes, unkritisches Dokument hoch. Lass Anforderungen, Entscheidungen oder Zahlen extrahieren und fordere Seiten- oder Abschnittsnachweise. Frage anschließend absichtlich nach einer Information, die nicht im Dokument steht. Das korrekte Verhalten ist, die Lücke zu benennen statt Inhalt zu erfinden.
+
+\section{Experiment 7: Workflow mit Freigabepunkt}
+
+\textbf{Ziel:} Wirkung von Zwischenergebnissen und Nutzersteuerung untersuchen.
+
+Lass aus unsortierten Notizen zunächst nur Zielgruppe, Gliederung und offene Fragen erstellen. Genehmige oder korrigiere diese Struktur, bevor der Fließtext entsteht. Vergleiche das Ergebnis mit einer direkten Ein-Schritt-Anfrage.
+
+\section{Experiment 8: Read--Draft--Act}
+
+\textbf{Ziel:} Autonomiestufen bewusst gestalten.
+
+Formuliere dieselbe Aufgabe dreimal: Informationen nur lesen, eine Änderung entwerfen und die Änderung zur Ausführung vorbereiten. Markiere Datenzugriffe, externe Wirkungen und den notwendigen Bestätigungspunkt. Prüfe, ob Act für den tatsächlichen Nutzen überhaupt erforderlich ist.
+
+\section{Experiment 9: Fehler provozieren}
+
+\textbf{Ziel:} Rückfragen, Annahmen und Abbruchverhalten testen.
+
+Gib absichtlich widersprüchliche Randbedingungen, etwa ``maximal eine Seite'' und ``vollständig mit allen Details''. Beobachte, ob das System nach Prioritäten fragt, eine Annahme transparent macht oder den Konflikt ignoriert. Wiederhole den Versuch mit einer expliziten Regel zur Konfliktbehandlung.
+
+\section{Experiment 10: Einen Workflow produktionsreif machen}
+
+\textbf{Ziel:} Aus einem Prompt einen wiederholbaren Prozess entwickeln.
+
+Wähle eine monatliche Aufgabe. Definiere Eingangsdaten, Teilschritte, Werkzeuge, Qualitätsprüfung, Freigabepunkte und Ausgabe. Teste mit einem realen Beispiel. Wiederhole den Lauf mit veränderten Eingangsdaten und prüfe, ob der Ablauf stabil bleibt.
+
+\section{Laborprotokoll}
+
+\begin{tabularx}{\textwidth}{@{}p{.18\textwidth}X@{}}\toprule
+Auftrag&Welche Formulierung und welche Daten wurden verwendet?\\
+Beobachtung&Welche Rückfragen, Werkzeuge und Zwischenschritte waren sichtbar?\\
+Ergebnis&Was war korrekt, nützlich, unklar oder falsch?\\
+Ursache&Welche Anweisung oder fehlende Information erklärt das Verhalten?\\
+Revision&Welche kleinste Änderung verbessert den nächsten Versuch?\\\bottomrule
+\end{tabularx}
+
