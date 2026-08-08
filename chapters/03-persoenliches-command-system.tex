@@ -1,0 +1,29 @@
+\chapter{Das persönliche Command-System}
+Die folgenden Befehle bilden eine kleine, wiederverwendbare Arbeitssprache.
+\begin{longtable}{@{}p{.22\textwidth}p{.7\textwidth}@{}}\toprule
+\textbf{Command}&\textbf{Standardverhalten}\\\midrule\endhead
+\texttt{/analyse}&Fakten, Annahmen, Ursachen, Zusammenhänge und Lösungen trennen.\\
+\texttt{/entscheidung}&Kriterien, Optionen, Risiken und Folgewirkungen bewerten; Empfehlung geben.\\
+\texttt{/vergleich}&Alternativen nach sinnvollen Kriterien vergleichen.\\
+\texttt{/plan}&Ziel in realistische Schritte, Abhängigkeiten und nächste Aktionen zerlegen.\\
+\texttt{/recherche}&Aktuelle Informationen mit belastbaren Quellen untersuchen.\\
+\texttt{/kritik}&Denkfehler, Lücken, Risiken und bessere Alternativen suchen.\\
+\texttt{/code}&Ausführbaren, wartbaren Code entwerfen, testen und erklären.\\
+\texttt{/sysml}&Anforderungen, Struktur, Verhalten, Schnittstellen und Verifikation modellieren.\\
+\texttt{/unterricht}&Lernziele, Einstieg, Erklärung, Übung und Musterlösung erstellen.\\
+\texttt{/dokument}&Material logisch ordnen und als professionelles Dokument ausarbeiten.\\
+\texttt{/todo}&Aufgaben, Anlass, Priorität, Frist und nächsten Schritt extrahieren.\\
+\texttt{/erklaere}&Vom Einfachen zum Komplexen erklären und Begriffe einführen.\\
+\texttt{/lernen}&Praxisorientierten Lernpfad mit Übungen erstellen.\\\bottomrule
+\end{longtable}
+\section{Modifier}
+\begin{tabularx}{\textwidth}{@{}lXlX@{}}\toprule
+\texttt{+kurz}&nur Wesentliches&\texttt{+tief}&mehr Zusammenhänge\\
+\texttt{+quellen}&Aussagen belegen&\texttt{+schritt}&konkrete Abfolge\\
+\texttt{+praxis}&Umsetzung priorisieren&\texttt{+kritisch}&Gegenargumente suchen\\
+\texttt{+tabelle}&tabellarisch ausgeben&\texttt{+datei}&passendes Artefakt erzeugen\\\bottomrule
+\end{tabularx}
+\begin{lstlisting}
+/entscheidung +kritisch +tabelle
+Soll unser Team die Wissensdatenbank selbst bauen oder eine Plattform nutzen?
+\end{lstlisting}

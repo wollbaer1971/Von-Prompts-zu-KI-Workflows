@@ -1,0 +1,4 @@
+\begin{center}\begin{tikzpicture}[node distance=12mm]
+\node[box] (u) {Nutzer};\node[box,right=of u] (ai) {KI-Orchestrator};\node[tool,above right=of ai] (sk) {Skill\\Vorgehen};\node[tool,right=of ai] (ap) {App\\Zugriff};\node[tool,below right=of ai] (mcp) {MCP\\Schnittstelle};\node[box,right=22mm of ap] (x) {Externe Systeme};
+\draw[arr](u)--(ai);\draw[arr](ai)--(sk);\draw[arr](ai)--(ap);\draw[arr](ai)--(mcp);\draw[arr](ap)--(x);\draw[arr](mcp)--(x);
+\end{tikzpicture}\end{center}

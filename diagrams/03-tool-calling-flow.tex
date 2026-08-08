@@ -1,0 +1,4 @@
+\begin{center}\begin{tikzpicture}[node distance=8mm]
+\node[box] (a) {Auftrag};\node[box,below=of a] (v) {Verstehen und planen};\node[box,below=of v] (t) {Werkzeug wählen};\node[tool,below left=of t] (s) {Websuche};\node[tool,below=of t] (f) {Dateien};\node[tool,below right=of t] (r) {Rechnen};\node[box,below=22mm of t] (p) {Prüfen und synthetisieren};\node[box,below=of p] (z) {Ergebnis};
+\draw[arr](a)--(v);\draw[arr](v)--(t);\draw[arr](t)--(s);\draw[arr](t)--(f);\draw[arr](t)--(r);\draw[arr](s)--(p);\draw[arr](f)--(p);\draw[arr](r)--(p);\draw[arr](p)--(z);
+\end{tikzpicture}\end{center}

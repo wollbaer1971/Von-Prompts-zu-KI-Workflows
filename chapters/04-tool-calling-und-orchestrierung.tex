@@ -1,0 +1,5 @@
+\chapter{Tool Calling und Orchestrierung}
+Ein Sprachmodell kann erkennen, dass es für eine Aufgabe aktuelle Daten, Berechnungen, Dateien oder einen externen Dienst benötigt. Beim Tool Calling erzeugt es einen strukturierten Werkzeugaufruf, erhält ein Ergebnis und verarbeitet dieses weiter. Die Orchestrierung koordiniert mehrere solcher Schritte.
+\input{diagrams/03-tool-calling-flow.tex}
+\section{Warum Prüfschritte wichtig sind}
+Werkzeuge können scheitern, Daten können unvollständig sein und Modellinterpretationen können falsch sein. Ein robuster Workflow prüft daher Quelle, Aktualität, Vollständigkeit, Rechenergebnis und Ausgabeformat.

@@ -1,0 +1,14 @@
+\chapter{Eine persönliche Workflow-Architektur aufbauen}
+Beginne klein: globale Konventionen für häufige Arbeit, projektspezifische Regeln für einen Kontext und spezialisierte Assistenten nur dort, wo eigenes Wissen oder Werkzeuge notwendig sind.
+\input{diagrams/06-workflow-architektur.tex}
+\section{Vorlage für benutzerdefinierte Anweisungen}
+\begin{lstlisting}
+Wenn meine Nachricht mit /analyse, /entscheidung, /vergleich, /plan,
+/recherche, /kritik, /code, /unterricht, /dokument, /todo, /erklaere
+oder /lernen beginnt, behandle das Wort als vereinbarte Kurzform für den
+entsprechenden Arbeitsmodus. Modifier: +kurz, +tief, +quellen, +schritt,
++praxis, +kritisch, +tabelle, +datei. Trenne Fakten, Annahmen und
+Unsicherheit. Frage nur nach, wenn eine fehlende Angabe das Ergebnis
+wesentlich verändert. Vor externen oder schwer rückgängig zu machenden
+Aktionen zeige Ziel und Wirkung und hole eine Bestätigung ein.
+\end{lstlisting}

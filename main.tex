@@ -1,0 +1,40 @@
+\documentclass[11pt,a4paper]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern,microtype,geometry,xcolor,booktabs,tabularx,longtable,enumitem,hyperref,listings,tikz,tcolorbox,fancyhdr}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds}
+\geometry{margin=24mm,headheight=14pt}
+\definecolor{navy}{HTML}{17365D}\definecolor{blue}{HTML}{2F75B5}\definecolor{cyan}{HTML}{DDEBF7}\definecolor{green}{HTML}{E2F0D9}\definecolor{orange}{HTML}{FCE4D6}\definecolor{graybox}{HTML}{F2F4F7}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=blue,pdftitle={Von Prompts zu KI-Workflows}}
+\pagestyle{fancy}\fancyhf{}\lhead{Von Prompts zu KI-Workflows}\rhead{Praxisleitfaden}\cfoot{\thepage}
+\setlist{nosep,leftmargin=*}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,backgroundcolor=\color{graybox},frame=single,rulecolor=\color{gray!30},xleftmargin=4pt,xrightmargin=4pt,literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1}
+\newtcolorbox{merke}{colback=cyan,colframe=blue,title=Merksatz}
+\newtcolorbox{praxis}{colback=green,colframe=green!50!black,title=Praxis}
+\newtcolorbox{achtung}{colback=orange,colframe=orange!70!black,title=Achtung}
+\tikzset{box/.style={draw=navy,rounded corners,fill=cyan,minimum width=30mm,minimum height=10mm,align=center},tool/.style={draw=blue,rounded corners,fill=green,minimum width=24mm,minimum height=9mm,align=center},arr/.style={-{Latex[length=2mm]},thick,draw=navy}}
+\title{\Huge\bfseries Von Prompts zu KI-Workflows\\[6mm]\Large Commands, Werkzeuge, Apps, Skills, Agenten und MCP verstehen und praktisch erproben}
+\author{Didaktischer Praxisleitfaden}\date{Neuausgabe 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Dieses Buch erklärt den Wandel vom reinen Textdialog zum werkzeuggestützten KI-Arbeitsprozess. Es trennt echte Produktfunktionen von selbst definierten Kurzbefehlen, zeigt ein persönliches Command-System und führt in zehn direkt ausführbaren Experimenten von einfachen Prompts bis zu sicheren, mehrstufigen Workflows. Alle Diagramme sind mit TikZ erzeugt.
+\end{abstract}
+\tableofcontents
+
+\input{chapters/01-vom-prompt-zum-arbeitsauftrag.tex}
+\input{chapters/02-was-commands-wirklich-sind.tex}
+\input{chapters/03-persoenliches-command-system.tex}
+\input{chapters/04-tool-calling-und-orchestrierung.tex}
+\input{chapters/05-search-deep-research-quellenarbeit.tex}
+\input{chapters/06-apps-skills-plugins-mcp.tex}
+\input{chapters/07-agenten-und-sichere-autonomie.tex}
+\input{chapters/08-praxislabor-zehn-experimente.tex}
+\input{chapters/09-workflow-architektur-aufbauen.tex}
+\input{chapters/10-fehlerbilder-und-diagnose.tex}
+
+\appendix
+\input{chapters/A1-cheatsheet.tex}
+\input{chapters/A2-quellen-und-stand.tex}
+\end{document}

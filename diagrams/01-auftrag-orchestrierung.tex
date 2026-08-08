@@ -1,0 +1,6 @@
+\begin{center}\begin{tikzpicture}[node distance=11mm]
+\node[box] (u) {Nutzerziel}; \node[box,right=of u] (o) {Orchestrierung}; \node[box,right=of o] (e) {Ergebnis};
+\draw[arr] (u)--node[above]{Auftrag}(o); \draw[arr] (o)--node[above]{geprüft}(e);
+\node[tool,below=of o,xshift=-28mm] (m) {Modell};\node[tool,below=of o] (w) {Werkzeuge};\node[tool,below=of o,xshift=28mm] (d) {Daten};
+\draw[arr] (o)--(m);\draw[arr] (o)--(w);\draw[arr] (o)--(d);
+\end{tikzpicture}\end{center}
